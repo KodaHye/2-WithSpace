@@ -1,7 +1,9 @@
 from django.db import models
+from account.models import User
 from django.utils import timezone
 from django.db.models.deletion import CASCADE
 from django.core.validators import RegexValidator
+from taggit.managers import TaggableManager
 
 # 1. Space      (fk- User<Host>)
 # 2. Review    (fk- Space, User)
@@ -11,28 +13,28 @@ from django.core.validators import RegexValidator
 
 class Space(models.Model):
     # space_id
-    host_id = models.ForeignKey(user.User, on_delete=models.CASCADE, null=True)
+    host_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     space_name = models.CharField(max_length=30)
     SPACE_TYPE_CHOICES = [
-        (STUDY, '스터디룸'),
-        (STUDIO, '촬영스튜디오'),
-        (CAFE, '카페 단체석'),
-        (RESTAURANT, '음식점 단체석'),
-        (MEETING, '회의실'),
-        (ETC, '기타')
+        ('STUDY', '스터디룸'),
+        ('STUDIO', '촬영스튜디오'),
+        ('CAFE', '카페 단체석'),
+        ('RESTAURANT', '음식점 단체석'),
+        ('MEETING', '회의실'),
+        ('ETC', '기타')
     ]
     space_type = models.CharField(
-        max_length=2,
+        max_length=10,
         choices=SPACE_TYPE_CHOICES,
-        default=STUDY
+        default='STUDY'
     )
     contactNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
     contact_number = models.CharField(validators = [contactNumberRegex], max_length = 16, unique = True)
     price = models.IntegerField() # 시간당 가격
     space_brief_detail = models.CharField(max_length=200)
     space_detail = models.TextField()
-    # tags
-    address = models.charField(max_length=200, default='')
+    tags = TaggableManager(blank=True)
+    address = models.CharField(max_length=200, default='')
     url = models.URLField() # form widget = URLInput
     space_likes = models.IntegerField(default=0)
     space_image = models.ImageField(blank=True, null=True)
@@ -44,7 +46,7 @@ class Space(models.Model):
 class Booking(models.Model):
     # booking_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(user.User, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     num_of_people = models.IntegerField()
     num_of_vaccinated = models.IntegerField()
     booking_date = models.DateField()
@@ -57,8 +59,8 @@ class Booking(models.Model):
 class Review(models.Model):
     # review_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(user.User, on_delete=models.CASCADE, null=True)
-    review_content = models.textField()
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    review_content = models.TextField()
     
     def __str__(self):
         return self.review_content
@@ -67,19 +69,19 @@ class Review(models.Model):
 class Question(models.Model):
     # question_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
-    writer = models.charField(max_length=50, default='')
-    question_content = models.textField()
+    writer = models.CharField(max_length=50, default='')
+    question_content = models.TextField()
     # review_star
     
     def __str__(self):
         return self.question_content
-    
-    
+
+
 class Answer(models.Model):
     # answer_id
-    quesition_id = models.ForiengKey(Question, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(user.User, on_delete=models.CASCADE, null=True) # space의 host_id
-    answer_content = models.textField()
+    question_id =models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # space의 host_id
+    answer_content = models.TextField()
     
     def __str__(self):
         return self.answer_content

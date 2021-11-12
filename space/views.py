@@ -33,18 +33,7 @@ def register(request):
         return redirect('main')
     else:
         return reneder(request, 'register_space.html')
-        
-'''
-    contact_number = models.CharField(validators = [contactNumberRegex], max_length = 16, unique = True)
-    price = models.IntegerField() # 시간당 가격
-    space_brief_detail = models.CharField(max_length=200)
-    space_detail = models.TextField()
-    # tags
-    address = models.charField(max_length=200, default='')
-    url = models.URLField() # form widget = URLInput
-    space_likes = models.IntegerField(default=0)
-    space_image = models.ImageField(blank=True, null=True)
-'''
+
 
 # 공간 검색 페이지
 def search_space(request):
