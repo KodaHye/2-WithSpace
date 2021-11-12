@@ -1,5 +1,5 @@
-"""withCloud URL Configuration
 
+"""withCloud URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from account import views as a
+from space import views as s 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', a.home, name="home"),
     path('account/', include('account.urls')),
+    path('space/', include('space.urls')),
 ]
