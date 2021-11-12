@@ -11,7 +11,7 @@
     width: 200pt; 
     height: 30pt
 }
-.aside{
+.container{
     flex: 30%;
     padding: 30px;
     margin: 30px;

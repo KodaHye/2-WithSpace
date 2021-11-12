@@ -28,6 +28,7 @@ with open(secret_file) as f:
     secrets = json.loads(f.read())
 
 # secrets.json 파일에서 SECRET_KEY 가져오기    
+# 깃 허브에 올릴 때 보안을 할 수 있음!
 def get_secret(setting, secrets=secrets):
     try:
         return secrets[setting]
