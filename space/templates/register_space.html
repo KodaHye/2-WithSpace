@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 운영자의 공간 등록 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+
+<form method = "post" action = "{% url 'register_space' %}" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    <div>
+        공간 이름:  <input type= "text" name = "space_name" placeholder="공간 이름">
+    </div>
+
+    <div>
+        <label for = "space_type"> 공간 유형:</label>
+        <select name = "space_type">
+            <option value="STUDY"> 스터디룸 </option>
+            <option value="STUDIO"> 촬영 스튜디오 </option>
+            <option value="CAFE"> 카페 단체석 </option>
+            <option value="RESTAURANT"> 음식점 단체석 </option>
+            <option value="MEETING"> 회의실 </option>
+            <option value="ETC"> 기타 </option>
+
+        </select>
+    </div>
+
+    <div>
+        전화번호 : <input type = "text" name = "contact_number">
+    </div>
+
+    <div>
+        시간 당 가격 : <input type = "number" name = "price">
+    </div>
+
+    <div>
+        공간 정보 : <input type = "text" name = "space_brief_detail">
+    </div>
+
+    <div>
+        공간 상세 정보 :
+        <textarea name = "space_detail" cols="80" rows="10">
+        </textarea>
+    </div>
+
+    <div>
+        <label for = "tags"> 태그 달기 </label>
+        <input type = "text" name = "tags">
+    </div>
+    <div>
+        <label for = "address">주소 : </label> 
+        <input type = "text" name = "address">
+    </div>
+
+    <div>
+        <label for = "url"> 웹사이트 url : </label>
+        <input type = "url" name = "url" placeholder= "https://example.com" size="100">
+    </div>
+
+    <div>
+        <label for = "space_image"> 대표 이미지 업로드 : </label>
+        <input type = "file" name = "space_image" accept="image/png, image/jpeg">
+    </div>
+
+    <button type = "submit"> 등록 완료 </button>
+
+</form>
+
+{% endblock %}
