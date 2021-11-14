@@ -21,7 +21,11 @@ def register(request):
         new_space.price = request.POST['price']
         new_space.space_brief_detail = request.POST['space_brief_detail']
         new_space.space_detail = request.POST['space_detail']
-        # new_space.tags = 
+        new_space.tags = request.POST.get('tags', '').split(',')
+        for tag in tags:
+            tag = tag.strip()
+            new_space.tags.add(tag)
+        # new_space.tags = request.POST.get['tags']
         new_space.address = request.POST['address']
         new_space.url = request.POST['url']
         new_space.space_likes = request.POST['space_likes']
@@ -44,8 +48,14 @@ def search_result(request):
     return render(request, 'search_result.html')
 
 # 공간 디테일 페이지 (공간 pk=id 값으로 페이지 렌더링)
-def space(request):
-    return render(request, 'space.html')
+def space(request, id):
+    if request.method == 'POST':
+        pk = request.POST.get('pk', None)
+        space = get_object_or_404(Space, pk=pk)
+    else:
+        space = get_object_or_404(Space, pk=id)
+        space_id = id
+        return render(request, 'space.html', {'space':space, 'space_id':space_id})
 
 # 예약자의 공간 예약 페이지
 def booker_booking(request):

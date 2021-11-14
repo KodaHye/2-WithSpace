@@ -5,4 +5,37 @@
 
 {% block content %}
 
+{% if space.image %}
+사진 : <img src = "{{space.image.url}}">
+{% endif %} 
+
+<div> 공간 운영자 : {{space.host_id}} </div>
+<div> 공간 이름 : {{space.space_name}} </div>
+<div> 공간 유형 : {{space.space_type}}</div>
+<div> 전화번호 : {{space.contact_number}}</div>
+<div> 시간당 가격 : {{space.price}}</div>
+<div> 공간 정보 : {{space.space_brief_detail}}</div>
+<div> 공간 상세 정보: {{space.space_detail}}</div>
+<div> 태그 : {% for tag in space.tags.all %}
+    #{{ tag.name }}
+    {% endfor %}
+</div>
+<div> 주소 : {{space.address}}</div>
+<div> 사이트 주소 : {{space.url}}</div>
+<div> 좋아요 수 : {{space.space_likes}}</div>
+
+<!--
+    
+    contactNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    contact_number = models.CharField(validators = [contactNumberRegex], max_length = 11, unique = True)
+    price = models.IntegerField() # 시간당 가격
+    space_brief_detail = models.CharField(max_length=200)
+    space_detail = models.TextField()
+    tags = TaggableManager(blank=True)
+    address = models.CharField(max_length=200, default='')
+    url = models.URLField() # form widget = URLInput
+    space_likes = models.IntegerField(default=0)
+    space_image = models.ImageField(blank=True, null=True)
+    
+-->
 {% endblock %} 

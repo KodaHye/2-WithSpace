@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} 운영자의 공간 등록 페이지 {% endblock %}
-{% block link %} {% static 'css/table.css' %}{% endblock %}
 
 {% block content %}
 
@@ -10,7 +9,8 @@
     {% csrf_token %}
 
     <div>
-        공간 이름:  <input type= "text" name = "space_name" placeholder="공간 이름">
+        <label for = "space_name"> 공간 이름:  </label> 
+        <input type= "text" name = "space_name" placeholder="공간 이름">
     </div>
 
     <div>
@@ -22,26 +22,27 @@
             <option value="RESTAURANT"> 음식점 단체석 </option>
             <option value="MEETING"> 회의실 </option>
             <option value="ETC"> 기타 </option>
-
         </select>
     </div>
 
     <div>
-        전화번호 : <input type = "text" name = "contact_number">
+        <label for = "contact_number"> 전화 번호 : </label>
+        <input type = "text" name = "contact_number">
     </div>
 
     <div>
-        시간 당 가격 : <input type = "number" name = "price">
+        <label for = "price"> 시간 당 가격 : </label>
+        <input type = "number" name = "price">
     </div>
 
     <div>
-        공간 정보 : <input type = "text" name = "space_brief_detail">
+        <label for = "space_brief_detail"> 공간 정보 : </label>
+        <input type = "text" name = "space_brief_detail">
     </div>
 
     <div>
-        공간 상세 정보 :
-        <textarea name = "space_detail" cols="80" rows="10">
-        </textarea>
+        <label for = "space_detail"> 공간 상세 정보 : </label>
+        <textarea name = "space_detail" cols="80" rows="10"></textarea>
     </div>
 
     <div>
