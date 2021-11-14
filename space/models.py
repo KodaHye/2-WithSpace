@@ -61,6 +61,7 @@ class Review(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     review_content = models.TextField()
+    # review_star
     
     def __str__(self):
         return self.review_content
@@ -71,7 +72,6 @@ class Question(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     writer = models.CharField(max_length=50, default='')
     question_content = models.TextField()
-    # review_star
     
     def __str__(self):
         return self.question_content
