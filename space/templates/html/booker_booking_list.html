@@ -2,13 +2,15 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/table.css">
 
+<style>
+</style>
 
 <aside class="container">
-    <div>
-        <span id = "title" style="font-size: 35px; font-weight: bolder;"> 예약자 리스트에 등록이 완료되었습니다.</span> <br> 
+    <div style="padding-bottom: 50px;">
+        <span class = "title"> 예약자 리스트에 등록이 완료되었습니다.</span> <br> 
     </div>
     <div style="padding: 20px 3px 20px">
-        <span style="font-weight: bolder">예약정보</span><br>
+        <span style="font-weight: bolder; font-size: 27px;">예약정보</span><br>
     </div>
     <div class = "info_table">
         <table>
@@ -21,11 +23,32 @@
             </tr>
             <tr>
                 <td>예약인원</td>
-                <td>3행 2열</td>
+                <!-- 예약인원에 대한 정보 나올 수 있도록 -->
+                <td>
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>백신접종자: X명</span> 
+                    </div>                    
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>백신 미접종자: X명</span>
+                    </div>                    
+                    <div style="display: inline;">
+                        <span>총 인원: X명</span>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>예약날짜</td>
-                <td>4행 2열</td>
+                <td>
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>20XX/XX/XX</span> 
+                    </div>                    
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>XX:00 ~ XX:XX</span>
+                    </div>                    
+                    <div style="display: inline;">
+                        <span>총 인원: X시간</span>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>공간명</td>
