@@ -4,7 +4,7 @@
 {% block link %} {% static 'css/style.css' %}{% endblock %}
 {% block content %}
 
-<form method = "post" action = "{% url 'booker_booking' %}" enctype='multipart/form-data'>
+<form method = "post" action = "{% url 'book' space.id %}" enctype='multipart/form-data'>
     {% csrf_token %}
     
 <div class = "container">

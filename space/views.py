@@ -62,10 +62,12 @@ def booker_booking(request, id):
     # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
     return render(request, 'booking_page.html', {'space': space})
 
-def book(request, space_id):
+def book(request, id):
+    space_id = id
+    space = get_object_or_404(Space, pk = space_id)
     if request.method == "POST":
         new_booking = Booking()
-        new_booking.space_id = get_object_or_404(Space, pk=space_id)
+        new_booking.space_id = space
         new_booking.num_of_people = request.POST['num_of_people']
         new_booking.num_of_vaccinated = request.POST['num_of_vaccinated']
         new_booking.booking_date = request.POST['booinig_date']
@@ -74,8 +76,8 @@ def book(request, space_id):
         user = User.objects.get(id=user_id)
         new_booking.save()
         return redirect('space', space_id)
-    # else:
-    #    return render(request, 'booking_page.html', {'space':space, 'space_id':space_id})
+    else:
+        return render(request, 'booking_page.html', {'space':space, 'space_id':space_id})
     
 # 예약자의 공간 예약 리스트 페이지 (마이페이지 연동)
 def booker_booking_list(request):
