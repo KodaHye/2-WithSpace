@@ -1,0 +1,36 @@
+#main {
+    display: flex;
+}
+footer {
+    padding: 30px;
+}
+.footer {
+    background-color: #CAD9EC;
+
+}
+.text {
+    color: #ffffff;
+}
+.navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: rgb(254, 255, 169);
+}
+
+.navbar a {
+    padding: 14px;
+    margin-left: 15px;
+}
+.navbar a:hover {
+    color: black;
+    background-color: white;
+}
+.margin {
+    margin-left:10px;
+    margin-right:10px;
+}
+#wrapper {
+    position: relative;
+    height: 100%;
+}

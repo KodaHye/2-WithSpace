@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 예약자의 예약 리스트 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+<aside class="container">
+    <div style="padding-bottom: 50px;">
+        <span class = "title"> 예약자 리스트에 등록이 완료되었습니다.</span> <br> 
+    </div>
+    {% for b in book %} 
+    <div style="padding: 20px 3px 20px">
+        <span style="font-weight: bolder; font-size: 27px;">예약정보</span><br>
+    </div>
+    
+    <div class = "info_table">
+        <table>
+            <tr>
+                <td width = "200">예약자 이름</td>
+                <td>{{ b.booker_name }}</td>
+            </tr>
+                <td>전화번호</td>
+                <td>{{ b.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <td>예약인원</td>
+                <!-- 예약인원에 대한 정보 나올 수 있도록 -->
+                <td>
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>총 인원: {{ b.num_of_people }} 명</span> 
+                    </div>                    
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>백신 접종자: {{ b.num_of_vaccinated }}명</span>
+                    </div>                    
+                    <div style="display: inline;">
+                        <span>총 인원: {{ b.num_of_people }}명</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>예약날짜</td>
+                <td>
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>20XX/XX/XX</span> 
+                    </div>                    
+                    <div style="display: inline; padding-right: 20px;">
+                        <span>XX:00 ~ XX:XX</span>
+                    </div>                    
+                    <div style="display: inline;">
+                        <span>총 인원: X시간</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>공간명</td>
+                <td>5행 2열</td>
+            </tr>
+            <tr>
+                <td>총 결제금액</td>
+                <td>6행 2열</td>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+</aside>
+
+
+{% endblock %}

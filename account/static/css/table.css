@@ -1,0 +1,13 @@
+table {
+    width: 1000px;
+    border-top: 1px solid #000000;
+    border-collapse: collapse;
+}
+th, td {
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #000000;
+    padding: 15px;
+}
+th:first-child, td:first-child {
+    border-left: none;
+}

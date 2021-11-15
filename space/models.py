@@ -1,3 +1,90 @@
 from django.db import models
+from account.models import User
+from django.utils import timezone
+from django.db.models.deletion import CASCADE
+from django.core.validators import RegexValidator
+from taggit.managers import TaggableManager
 
-# Create your models here.
+# 1. Space      (fk- User<Host>)
+# 2. Review    (fk- Space, User)
+# 3. Question  (fk- Space, User)
+# 4. Answer     (fk- Question, User<Host>)
+# 4. Booking    (fk- Space, User)
+
+class Space(models.Model):
+    # space_id
+    host_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    space_name = models.CharField(max_length=30)
+    SPACE_TYPE_CHOICES = [
+        ('STUDY', '스터디룸'),
+        ('STUDIO', '촬영스튜디오'),
+        ('CAFE', '카페 단체석'),
+        ('RESTAURANT', '음식점 단체석'),
+        ('MEETING', '회의실'),
+        ('ETC', '기타')
+    ]
+    space_type = models.CharField(
+        max_length=10,
+        choices=SPACE_TYPE_CHOICES,
+        default='STUDY'
+    )
+    contactNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    contact_number = models.CharField(validators = [contactNumberRegex], max_length = 11, unique = True)
+    price = models.IntegerField() # 시간당 가격
+    space_brief_detail = models.CharField(max_length=200)
+    space_detail = models.TextField()
+    tags = TaggableManager(blank=True)
+    address = models.CharField(max_length=200, default='')
+    url = models.URLField() # form widget = URLInput
+    space_likes = models.IntegerField(default=0)
+    space_image = models.ImageField(upload_to="space/", blank=True, null=True)
+    
+    def __str__(self):
+        return self.space_name
+
+
+class Booking(models.Model):
+    # booking_id
+    space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    booker_name = models.CharField(max_length = 50, default='')
+    phoneNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 11, unique = True)
+    num_of_people = models.IntegerField()
+    num_of_vaccinated = models.IntegerField()
+    booking_date = models.DateField()
+    # booking_time
+    
+    def __str__(self):
+        return self.booker_name
+    
+    
+class Review(models.Model):
+    # review_id
+    space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    review_content = models.TextField()
+    # review_star
+    
+    def __str__(self):
+        return self.review_content
+    
+    
+class Question(models.Model):
+    # question_id
+    space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
+    writer = models.CharField(max_length=50, default='')
+    question_content = models.TextField()
+    
+    def __str__(self):
+        return self.question_content
+
+
+class Answer(models.Model):
+    # answer_id
+    question_id =models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # space의 host_id
+    answer_content = models.TextField()
+    
+    def __str__(self):
+        return self.answer_content

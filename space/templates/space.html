@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 공간에 대한 디테일 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+{% if space.space_image %}
+사진 : <img src = "{{space.space_image.url}}" width="150">
+{% endif %} 
+
+<div> 공간 운영자 : {{space.host_id}} </div>
+<div> 공간 이름 : {{space.space_name}} </div>
+<div> 공간 유형 : {{space.space_type}}</div>
+<div> 전화번호 : {{space.contact_number}}</div>
+<div> 시간당 가격 : {{space.price}}</div>
+<div> 공간 정보 : {{space.space_brief_detail}}</div>
+<div> 공간 상세 정보: {{space.space_detail}}</div>
+<div> 태그 : {% for tag in space.tags.all %}
+    #{{ tag.name }}
+    {% endfor %}
+</div>
+<div> 주소 : {{space.address}}</div>
+<div> 사이트 주소 : <a>{{space.url}}</a></div>
+<div> 좋아요 수 : {{space.space_likes}}</div>
+
+<br>
+
+<button><a href = "{% url 'book' space.id %}"> 예약하기 </a></button>
+
+{% endblock %} 
