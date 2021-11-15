@@ -37,7 +37,7 @@ class Space(models.Model):
     address = models.CharField(max_length=200, default='')
     url = models.URLField() # form widget = URLInput
     space_likes = models.IntegerField(default=0)
-    space_image = models.ImageField(blank=True, null=True)
+    space_image = models.ImageField(upload_to="space/", blank=True, null=True)
     
     def __str__(self):
         return self.space_name
@@ -47,13 +47,16 @@ class Booking(models.Model):
     # booking_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    booker_name = models.CharField(max_length = 50, default='')
+    phoneNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 11, unique = True)
     num_of_people = models.IntegerField()
     num_of_vaccinated = models.IntegerField()
     booking_date = models.DateField()
     # booking_time
     
     def __str__(self):
-        return (self.space_id + "/" + self.user_id + "/" + self.num_of_people)
+        return self.booker_name
     
     
 class Review(models.Model):

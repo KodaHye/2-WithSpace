@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<form method = "post" action = "{% url 'register_space' %}" enctype='multipart/form-data'>
+<form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
     {% csrf_token %}
 
     <div>
