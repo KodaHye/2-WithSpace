@@ -62,6 +62,7 @@ def booker_booking(request, id):
     # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
     return render(request, 'booking_page.html', {'space': space})
 
+# 새로운 예약 생성
 def book(request, id):
     space_id = id
     space = get_object_or_404(Space, pk = space_id)
