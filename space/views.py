@@ -62,6 +62,37 @@ def booker_booking(request, id):
     # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
     return render(request, 'booking_page.html', {'space': space})
 
+# 리뷰 생성
+def create_review(request, id):
+    space_id = id
+    if request.method == 'POST':
+        review = Review()
+        review.space_id = get_object_or_404(Space, pk=space_id)
+        review.review_content = request.POST['review_content']
+        review.save()
+        return redirect('space', space_id)
+
+# 질문 생성
+def create_question(request, id):
+    space_id = id
+    if request.method == 'POST':
+        question = Question()
+        question.space_id = get_object_or_404(Space, pk=space_id)
+        question.writer = request.POST['writer']
+        question.question_content = request.POST['question_content']
+        question.save()
+        return redirect('space', space_id)
+    
+# 질문에 대한 답변 달기
+def create_answer(request, space_id, question_id):
+    if request.method == 'POST':
+        answer = Answer()
+        answer.space_id = get_object_or_404(Space, pk=space_id)
+        answer.question_id = get_object_or_404(Question, pk=question_id)
+        answer.answer_content = request.POST['answer_content']
+        answer.save()
+        return redirect('space', space_id)
+    
 # 새로운 예약 생성
 def book(request, id):
     space_id = id
