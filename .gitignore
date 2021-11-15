@@ -248,3 +248,4 @@ cython_debug/
 # 시크릿 키
 secrets.json
 myvenv
+venv
