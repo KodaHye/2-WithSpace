@@ -70,7 +70,7 @@ def book(request, id):
         new_booking.space_id = space
         new_booking.num_of_people = request.POST['num_of_people']
         new_booking.num_of_vaccinated = request.POST['num_of_vaccinated']
-        new_booking.booking_date = request.POST['booinig_date']
+        new_booking.booking_date = request.POST['bookinig_date']
         
         user_id = request.user.id
         user = User.objects.get(id=user_id)
@@ -80,7 +80,7 @@ def book(request, id):
         return render(request, 'booking_page.html', {'space':space, 'space_id':space_id})
     
 # 예약자의 공간 예약 리스트 페이지 (마이페이지 연동)
-def booker_booking_list(request):
+def booker_booking_list(request, booking_id, space_id):
     book=Booking.objects.all()
     return render(request, 'booker_booking_list.html', {'book':book})
 

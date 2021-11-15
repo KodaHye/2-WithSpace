@@ -15,24 +15,24 @@
     <div class = "info_table">
         <table>
             <tr>
-                <td width = "200">이름</td>
-                <td>1행 2열</td>
+                <td width = "200">예약자 이름</td>
+                <td>{{ booking.booker_name }}</td>
             </tr>
                 <td>전화번호</td>
-                <td>2행 2열</td>
+                <td>{{ booking.phoneNumber }}</td>
             </tr>
             <tr>
                 <td>예약인원</td>
                 <!-- 예약인원에 대한 정보 나올 수 있도록 -->
                 <td>
                     <div style="display: inline; padding-right: 20px;">
-                        <span>백신접종자: X명</span> 
+                        <span>총 인원: {{ booking.num_of_people }} 명</span> 
                     </div>                    
                     <div style="display: inline; padding-right: 20px;">
-                        <span>백신 미접종자: X명</span>
+                        <span>백신 접종자: {{ booking.num_of_vaccinated }}명</span>
                     </div>                    
                     <div style="display: inline;">
-                        <span>총 인원: X명</span>
+                        <span>총 인원: {{ booking.num_of_people }}명</span>
                     </div>
                 </td>
             </tr>
