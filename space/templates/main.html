@@ -67,7 +67,9 @@
             
             <div class="col-sm-6 col-md-6" style ="width: 515px;">  
               <div class="thumbnail">
+                 {% if space.space_image %}
                  <img src="{{ space.space_image.url }}" alt="사진 로드 실패" />
+                 {% endif %}
                  <div class="caption">
                    <h3>{{ space.space_name }}</h3>
                    {% for tag in space.tags.all %}

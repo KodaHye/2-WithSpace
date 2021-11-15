@@ -24,4 +24,8 @@
 <div> 사이트 주소 : <a>{{space.url}}</a></div>
 <div> 좋아요 수 : {{space.space_likes}}</div>
 
+<br>
+
+<button><a href = "{% url 'book' space.id %}"> 예약하기 </a></button>
+
 {% endblock %} 

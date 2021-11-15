@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-# from taggit.managers import 
 
 # 메인 페이지
 def main(request):
@@ -21,22 +20,21 @@ def register(request):
         new_space.price = request.POST['price']
         new_space.space_brief_detail = request.POST['space_brief_detail']
         new_space.space_detail = request.POST['space_detail']
-        new_space.tags = request.POST.get('tags', '').split(',')
-        for tag in tags:
-            tag = tag.strip()
-            new_space.tags.add(tag)
-        # new_space.tags = request.POST.get['tags']
         new_space.address = request.POST['address']
         new_space.url = request.POST['url']
-        new_space.space_likes = request.POST['space_likes']
-        new_space.space_image = request.FILES['space_image']
+        new_space.space_image = request.FILES.get('space_image')
         
         host_id = request.user.id
         user = User.objects.get(id=host_id)
         new_space.save()
+        
+        tags = request.POST.get('tags', '').split(',')
+        for tag in tags:
+            tag = tag.strip()
+            new_space.tags.add(tag)
         return redirect('main')
     else:
-        return reneder(request, 'register_space.html')
+        return render(request, 'register_space.html')
 
 
 # 공간 검색 페이지
@@ -58,12 +56,35 @@ def space(request, id):
         return render(request, 'space.html', {'space':space, 'space_id':space_id})
 
 # 예약자의 공간 예약 페이지
-def booker_booking(request):
-    return render(request, 'booker_booking.html')
+def booker_booking(request, id):
+    space_id = id
+    space = get_object_or_404(Space, pk=space_id)
+    # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
+    return render(request, 'booking_page.html', {'space': space})
 
+def book(request, id):
+    space_id = id
+    space = get_object_or_404(Space, pk = space_id)
+    if request.method == "POST":
+        new_booking = Booking()
+        new_booking.space_id = space
+        new_booking.booker_name = request.POST['booker_name']
+        new_booking.phoneNumber = request.POST['phoneNumber']
+        new_booking.num_of_people = request.POST['num_of_people']
+        new_booking.num_of_vaccinated = request.POST['num_of_vaccinated']
+        new_booking.booking_date = request.POST['booking_date']
+        
+        # user_id = request.user.id
+        # user = User.objects.get(id=user_id)
+        new_booking.save()
+        return redirect('booker_booking_list')
+    else:
+        return render(request, 'booking_page.html', {'space':space, 'space_id':space_id})
+    
 # 예약자의 공간 예약 리스트 페이지 (마이페이지 연동)
 def booker_booking_list(request):
-    return render(request, 'booker_booking_list.html')
+    book=Booking.objects.all()
+    return render(request, 'booker_booking_list.html', {'book':book})
 
 # 공간 운영자의 공간에 대한 예약 리스트 페이지
 def host_booking_list(request):
