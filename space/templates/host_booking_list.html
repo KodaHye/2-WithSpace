@@ -1,1 +1,34 @@
-공간 운영자의 공간에 대한 예약 리스트 페이지
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 공간 운영자의 예약 리스트 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+<aside class="container">
+    <div style="padding-bottom: 50px;">
+        <span class = "title"> 예약리스트</span> <br> 
+    </div>
+
+    <div class = "info_table">
+        <table>
+            <tr>
+                <td width = "200">예약공간명</td>
+                <td>1행 2열</td>
+            </tr>
+                <td>예약고객명</td>
+                <td>2행 2열</td>
+            </tr>
+            <tr>
+                <td>예약날짜 / 시간</td>
+                <td>3행 2열</td>
+            </tr>
+            <tr>
+                <td>예약인원수</td>
+                <td>4행 2열</td>
+            </tr>
+        </table>
+    </div>
+</aside>
+
+{% endblock %}

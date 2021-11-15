@@ -28,8 +28,8 @@ class Space(models.Model):
         choices=SPACE_TYPE_CHOICES,
         default='STUDY'
     )
-    contactNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
-    contact_number = models.CharField(validators = [contactNumberRegex], max_length = 16, unique = True)
+    contactNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    contact_number = models.CharField(validators = [contactNumberRegex], max_length = 11, unique = True)
     price = models.IntegerField() # 시간당 가격
     space_brief_detail = models.CharField(max_length=200)
     space_detail = models.TextField()
@@ -61,6 +61,7 @@ class Review(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     review_content = models.TextField()
+    # review_star
     
     def __str__(self):
         return self.review_content
@@ -71,7 +72,6 @@ class Question(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     writer = models.CharField(max_length=50, default='')
     question_content = models.TextField()
-    # review_star
     
     def __str__(self):
         return self.question_content

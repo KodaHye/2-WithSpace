@@ -1,1 +1,60 @@
-공간 검색 페이지
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 검색 결과 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+
+<style>
+    .box{
+        border: 1px solid;
+        padding: 10px
+    }
+    .button {
+        width: 500px; display: inline;
+    }
+</style>
+
+<div class="container">
+    <div style="padding-bottom: 30px;">
+        <div style="padding-bottom: 20px;">
+            <span id = "title" style="font-size: 35px; font-weight: bolder;">당신에게 필요한 공간을 검색해보세요.</span> <br> 
+        </div>
+        <div style = "width: 1000px;">
+            <input type="text" name = "search_space" placeholder="장소를 검색해주세요. (장소, 조건)" style="width: 1000px; height: 30pt;">
+        </div>
+    </div>
+    
+    <div style="padding-bottom: 10px;"><span>상세 설정하기</span></div>
+    <div class = "box">
+        <div style="padding: 10px 10px 0px 10px">
+            <div style="padding-bottom: 20px;">
+                <span>용도</span> <br>
+                <div class = "button"><input type="radio" name = "purpose" > 스터디룸 </div>
+                <div class = "button"><input type="radio" name = "purpose" > 회의실 </div>
+                <div class = "button"><input type="radio" name = "purpose" > 카페단체석 </div>
+                <div class = "button"><input type="radio" name = "purpose" > 음식단체석 </div>
+                <div class = "button"><input type="radio" name = "purpose" > 촬영스튜디오 </div>
+                <div class = "button"><input type="radio" name = "purpose" > 기타 </div>
+            </div>
+    
+            <div style="padding-bottom: 20px;">
+                <span>가격(1시간 1인 기준)</span> <br>
+                <input type="radio" name = "price"> ~ 5,000원
+                <input type="radio" name = "price"> 5,000원 ~ 10,000원
+                <input type="radio" name = "price"> 10,000원 ~ 20,000원
+                <input type="radio" name = "price"> 그 이상
+            </div>
+    
+            <div style="padding-bottom: 20px;">
+                <span>인원수</span> <br>
+                <input type="radio" name = "people"> 2명
+                <input type="radio" name = "people"> 3명
+                <input type="radio" name = "people"> 그 이상
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,1 +1,57 @@
-결제 페이지
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 결제 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div style="padding-bottom: 60px;">
+        <div style="padding-bottom: 20px;">
+            <span id = "title" style="font-size: 35px; font-weight: bolder;">예약자정보</span> <br> 
+        </div>
+    
+        <div class = "info_table">
+            <table>
+                <tr>
+                    <td width = "200">이름</td>
+                    <td>1행 2열</td>
+                </tr>
+                    <td>전화번호</td>
+                    <td>2행 2열</td>
+                </tr>
+                <tr>
+                    <td>예약인원</td>
+                    <td>3행 2열</td>
+                </tr>
+                <tr>
+                    <td>예약날짜</td>
+                    <td>4행 2열</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div style="padding-bottom: 20px;">
+        <span id = "title" style="font-size: 35px; font-weight: bolder;">결제정보</span> <br> 
+    </div>
+
+    <div class = "info_table">
+        <table>
+            <tr>
+                <td width = "200">공간명</td>
+                <td>1행 2열</td>
+            </tr>
+                <td>총결제금액</td>
+                <td>2행 2열</td>
+            </tr>
+            <tr>
+                <td>결제방법</td>
+                <td>3행 2열</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
