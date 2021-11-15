@@ -37,7 +37,7 @@ class Space(models.Model):
     address = models.CharField(max_length=200, default='')
     url = models.URLField() # form widget = URLInput
     space_likes = models.IntegerField(default=0)
-    space_image = models.ImageField(blank=True, null=True)
+    space_image = models.ImageField(upload_to="space/", blank=True, null=True)
     
     def __str__(self):
         return self.space_name
