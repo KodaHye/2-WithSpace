@@ -56,7 +56,7 @@ class Booking(models.Model):
     # booking_time
     
     def __str__(self):
-        return (self.space_id + "/" + self.user_id + "/" + self.num_of_people)
+        return self.booker_name
     
     
 class Review(models.Model):
