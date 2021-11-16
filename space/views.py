@@ -120,7 +120,8 @@ def booker_booking_list(request):
 
 # 공간 운영자의 공간에 대한 예약 리스트 페이지
 def host_booking_list(request):
-    return render(request, 'host_booking_list.html')
+    space=Space.objects.all()
+    return render(request, 'host_booking_list.html', {'space':space})
 
 # 결제 페이지
 def payment(request):

@@ -7,14 +7,16 @@
 
 <aside class="container">
     <div style="padding-bottom: 50px;">
-        <span class = "title"> 예약리스트</span> <br> 
+        <span class = "title"> 공간 운영자 {{request.user}} 님의 공간에 대한 예약리스트</span> <br> 
     </div>
 
+    {% for s in space %}
+    {% if request.user == s.host_id %}
     <div class = "info_table">
         <table>
             <tr>
                 <td width = "200">예약공간명</td>
-                <td>1행 2열</td>
+                <td>{{s.space_name}}</td>
             </tr>
                 <td>예약고객명</td>
                 <td>2행 2열</td>
@@ -29,6 +31,9 @@
             </tr>
         </table>
     </div>
-</aside>
+    {% endif %}
+</aside> <br>
+
+{% endfor %}
 
 {% endblock %}

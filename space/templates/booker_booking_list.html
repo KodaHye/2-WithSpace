@@ -7,9 +7,12 @@
 
 <aside class="container">
     <div style="padding-bottom: 50px;">
-        <span class = "title"> 예약자 리스트에 등록이 완료되었습니다.</span> <br> 
+        <span class = "title"> {{ request.user }} 님의 예약 리스트입니다.</span> <br> 
     </div>
     {% for b in book %} 
+    {% if request.user == b.user_id %}
+
+    <br>
     <div style="padding: 20px 3px 20px">
         <span style="font-weight: bolder; font-size: 27px;">예약정보</span><br>
     </div>
@@ -34,7 +37,7 @@
                         <span>백신 접종자: {{ b.num_of_vaccinated }}명</span>
                     </div>                    
                     <div style="display: inline;">
-                        <span>총 인원: {{ b.num_of_people }}명</span>
+                        <span> </span>
                     </div>
                 </td>
             </tr>
@@ -48,21 +51,22 @@
                         <span>XX:00 ~ XX:XX</span>
                     </div>                    
                     <div style="display: inline;">
-                        <span>총 인원: X시간</span>
+                        <span>X시간</span>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td>공간명</td>
-                <td>5행 2열</td>
+                <td>공간명 </td>
+                <td>{{ b.space_id }}</td>
             </tr>
             <tr>
                 <td>총 결제금액</td>
-                <td>6행 2열</td>
+                <td>{{ b.space_id.price }}</td>
             </tr>
-        </table>
-    </div>
-    {% endfor %}
+        </table> 
+        {% endif %}
+    </div> 
+        {% endfor %} <br>
 </aside>
 
 
