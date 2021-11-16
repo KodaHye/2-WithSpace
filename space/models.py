@@ -35,7 +35,7 @@ class Space(models.Model):
     space_detail = models.TextField()
     tags = TaggableManager(blank=True)
     address = models.CharField(max_length=200, default='')
-    url = models.URLField() # form widget = URLInput
+    url = models.URLField()
     space_likes = models.IntegerField(default=0)
     space_image = models.ImageField(upload_to="space/", blank=True, null=True)
     
