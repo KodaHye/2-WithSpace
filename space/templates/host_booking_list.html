@@ -11,7 +11,11 @@
     </div>
 
     {% for s in space %}
-    {% if request.user == s.host_id %}
+    {% if s.host_id == request.user %} 
+    <h3> {{s.space_name}} 에 대한 예약 리스트 </h3>
+
+    {% for b in book %} 
+    {% if b.space_id == s.id %}
     <div class = "info_table">
         <table>
             <tr>
@@ -31,6 +35,9 @@
             </tr>
         </table>
     </div>
+    {% endif %} 
+    {% endfor %} 
+
     {% endif %}
 </aside> <br>
 
