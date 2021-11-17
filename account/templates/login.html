@@ -1,4 +1,4 @@
-<h1>홈 화면</h1>
+<!-- <h1>홈 화면</h1>
 <a href="{% url 'signup' %}">회원가입</a>
 <a href="{% url 'login' %}">로그인</a>
 <a href="{% url 'logout' %}">로그아웃</a>
@@ -9,8 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta a http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 화면</title>
 </head>
@@ -25,4 +24,161 @@
         </form>
     </div>
 </body>
-</html>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="stylesheet" href="./css/main_header.css">
+        <link rel="stylesheet" href="./css/footer.css">
+        <!-- bootstrap, jquery 사용을 위한 코드 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+        <meta charset="UTF-8">
+
+            <style>
+                hr {
+                    position: relative;
+                    width: 90%;
+                    right: 200px;
+                    height: 3px;
+                    border: 0;
+                    border-top: 1px solid #000;
+                }
+                #section_box {
+                    
+                    width: 1500px;
+                    height: 1600px;
+                    margin: 0 auto;
+                }
+                #makecenter {
+                    padding-top: 200px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+                #logintext {
+                    position: relative;
+                    right: 200px;
+                    font-size: 50px;
+                }
+                #socialbtn {
+                    position: relative;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    border:none;
+                    padding: 10px 100px;
+                    color:black;
+                    width: 70%;
+                    height: 80px;
+                    right: 200px;
+                    font-size: 20px;
+                }
+                .inputid
+                {
+                    position: relative;
+                    font-size: 20px;
+                    width: 100%; 
+                    height: 30pt;
+                    border-radius: 5px;
+                    right: 200px;
+                    padding: 10px 10px 10px 10px;   
+                    line-height: 100px;               
+                }
+                #btn{
+                    position: relative;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    border:none;
+                    background: #C8D9EB;
+                    padding: 10px 100px;
+                    color:black;
+                    width: 68%;
+                    height: 80px;
+                    right: 200px;
+                    top: 180px;
+                    font-size: 20px;
+                }
+
+            </style>
+            
+        </head>
+
+        <body>
+            <div id="wrap">
+                <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
+                <header>
+                    <div class="header1">
+                        <div class="header1_contents">
+                            <div id="h1_logo">
+                                <a href="">
+                                    withcloud
+                                </a>
+                            </div>
+
+                            <div id="h_button1"><a href="">공간검색</a></div>
+                            <span id="h_button2"><a href="">공간등록</a></span>
+                            
+                            <div class="h_col2_bf">
+                                <div id="login"><a href="http://127.0.0.1:5502/login.html">로그인</a></div>
+                                <div id="signup"><a href="http://127.0.0.1:5502/sign.html">회원가입</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div id="section_box">
+                    <div id="makecenter">
+                        <div id="logintext">
+                            회원가입
+                            <br><br>
+                        </div>
+                        <button id="socialbtn" style="background: #69f575;">네이버로 로그인</button>
+                        <br><br><br><br>
+                        <button id="socialbtn" style="background: #e9f85d;">카카오로 로그인</button>
+                        <br><br><br><br>
+                        <button id="socialbtn" style="background: #F9ECEC;">구글로 로그인</button>
+
+                        <br><br><br>
+                        <hr>
+                        <br><br>
+
+                        <form action="" method ="get"> 
+                            <div class="inputid">
+                                <input type="text" name = "nickname" placeholder="  닉네임" size="80" style="border-radius: 10px;">
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <div class="inputid">
+                                <input type="text" name = "pasword" placeholder=" 이메일" size="80" style="border-radius: 10px;">
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <div class="inputid">
+                                <input type="password" name = "pasword" placeholder="  비밀번호" size="80" style="border-radius: 10px;">
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <div class="inputid">
+                                <input type="password" name = "checkpasword" placeholder="  비밀번호 확인" size="80" style="border-radius: 10px;">
+                            </div>
+                        </form>
+                        <div>
+                            <a href="">
+                                <button id="btn" >회원가입</button>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </body>
+    </html>
