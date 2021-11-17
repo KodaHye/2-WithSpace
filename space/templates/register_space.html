@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% load static %}
 {% block title %} 운영자의 공간 등록 페이지 {% endblock %}
 
@@ -68,4 +68,241 @@
 
 </form>
 
-{% endblock %}
+{% endblock %} -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="stylesheet" href="./css/main_header.css">
+        <link rel="stylesheet" href="./css/footer.css">
+        <!-- bootstrap, jquery 사용을 위한 코드 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+        <meta charset="UTF-8">
+
+            <style>
+                #section_box {
+                    width: 1500px;
+                    height: 1600px;
+                    margin: 0 auto;
+                }
+                #makecenter {
+                    padding-top: 200px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+                #register_space {
+                    position: relative;
+                    text-align: left;
+                    bottom: 100px;
+                    left: 50px;
+                    font-size: 40px;
+                }
+                #space_name {
+                    position: relative;
+                    text-align: left;
+                    left: 55px;
+                    font-size: 30px;
+                }
+                #space_name_input {
+                    position: relative;
+                    right: 450px;
+                    top: 15px;
+                    height: 60px;
+                    font-size: 25px;
+                    padding: 10px 10px 10px 10px;
+                    
+                }
+                #upload_name {
+                    position: relative;
+                    font-size: 30px;
+                    left: 100px;
+                    bottom: 100px;
+                }
+
+                .upload_button {
+                    display: flex;
+                    justify-content: center;
+                }
+                label {
+                    cursor: pointer;
+                    font-size: 3em;
+                    position: relative;
+                    left: 100px;
+                    
+                }
+
+                /* 못생긴 기존 input 숨기기 */
+                #chooseFile {
+                    visibility: hidden;
+                }
+
+                #move_input1 {
+                    position: relative;
+                    bottom: 70px;
+                }
+                #move_input2 {
+                    position: relative;
+                    bottom: 103px;
+                    left: 600px;
+                }
+                #intro_space textarea{
+                    position: relative;
+                    right: 215px;
+                    top: 20px;
+                    padding: 10px 10px 10px 10px;
+                    resize: none;
+                    font-size:30px;
+                }
+                #url_input input{
+                    position: relative;
+                    right: 325px;
+                    top: 15px;
+                    height: 60px;
+                    font-size: 25px;
+                    padding: 10px 10px 10px 10px;
+                }
+                #submit_url {
+                    
+                }
+                #tel_name {
+                    position: relative;
+                    text-align: left;
+                    left: 70px;
+                    font-size: 30px;
+                }
+                #tel_input {
+                    position: relative;
+                    right: 505px;
+                    top: 15px;
+                    height: 60px;
+                    font-size: 25px;
+                    padding: 10px 10px 10px 10px;
+                }
+                #submit_btn button{
+                    position: relative;
+                    border-radius: 10px;
+                    font-size: 30px;
+                    height: 70px;
+                    left: 190px;
+                    top: 100px;
+                    padding-right: 50px;
+                    padding-left: 50px;
+
+                    
+                }
+
+            </style>
+            
+        </head>
+
+        <body>
+            <div id="wrap">
+                <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
+                <header>
+                    <div class="header1">
+                        <div class="header1_contents">
+                            <div id="h1_logo">
+                                <a href="">
+                                    withcloud
+                                </a>
+                            </div>
+
+                            <div id="h_button1"><a href="">공간검색</a></div>
+                            <span id="h_button2"><a href="">공간등록</a></span>
+                            
+                            <div class="h_col2_bf">
+                                <div id="login"><a href="">로그인</a></div>
+                                <div id="signup"><a href="">회원가입</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div id="section_box">
+                    <div id="makecenter">
+                        <div id="register_space">공간 등록하기</div>
+
+                        <div id="space_name">공간명</div>
+                        <div><input id="space_name_input" type="text" name="space_name_input" 
+                            size="30" style="border-radius: 10px;"></div>
+
+                        <div id="upload_name">사진 업로드</div>
+                        <!--<form> 태그의 enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시합니다.
+                            이 속성은 <form> 요소의 method 속성값이 “post”인 경우에만 사용할 수 있습니다.-->
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="upload_button">
+                                <label for="chooseFile">
+                                    👉 사진첨부! 👈
+                                </label>
+                            </div>
+                            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                        </form>
+
+                        <div id="move_input1">
+                            <div id="space_name">최대수용인원</div>
+                            <div><input id="space_name_input" type="text" name="maximum_people" 
+                                size="30" style="border-radius: 10px;"></div>
+                        </div>
+
+                        <div id="space_name">금액</div>
+                        <div><input id="space_name_input" type="text" name="price" 
+                            size="30" style="border-radius: 10px;"></div>
+                        
+                        <div id="move_input2">
+                            <div id="tel_name">전화번호</div>
+                            <div><input id="tel_input" type="text" name="tel" 
+                                size="20" style="border-radius: 10px;"></div>    
+                        </div>
+
+                        <div id="intro_space">
+                            <div id="space_name">공간소개</div>
+                            <textarea rows="5" cols="50" style="border-radius: 10px;" maxlength="125"></textarea>
+                        </div>
+                        
+                        <br><br><br><br>
+                        <div id="intro_space">
+                            <div id="space_name">상세정보</div>
+                            <textarea rows="5" cols="50" style="border-radius: 10px;"></textarea>
+                        </div>
+
+                        <br><br><br><br>
+                        <div id="space_name">웹 사이트 URL</div>
+                        <form name="urlform" action="" method="post">
+                            <div id="url_input">
+                                <input type="url" name="puturl" size="40" style="border-radius: 10px;">
+                                <span id="submit_url">
+                                    <input type="submit" name="save_url" value="저장" style="border-radius: 10px;">
+                                </span>
+                            </div>
+                        </form>
+
+                        <br><br><br><br>
+                        <div id="intro_space">
+                            <div id="space_name">해시태그설정</div>
+                            <textarea rows="3" cols="50" style="border-radius: 10px;"></textarea>
+                        </div>
+
+
+                        <div id="submit_btn">
+                            <button>등록</button>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </body>
+    </html>
