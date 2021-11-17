@@ -74,7 +74,7 @@
 <b>{{ question.writer|linebreaksbr }} </b>님의 질문 : {{ question.question_content|linebreaksbr }} <br>
 
 <!-- 현재 user가 공간 등록자와 동일한 유저라면 위의 질문에 대한 답변 등록 가능-->
-{% if user.user.id == space.host_id %} 
+{% if request.user == space.host_id %} 
 <h4> 공간 운영자 {{user}} 님의 답변 달기 </h4>
 <form action = "{% url 'create_answer' space.id question.id %}" method="POST">
     {% csrf_token %}
