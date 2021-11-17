@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% include "django/forms/widgets/input.html" %}
 {% block title %} 공간에 대한 디테일 페이지 {% endblock %}
 {% block link %} {% static 'css/table.css' %}{% endblock %}
 
 {% block content %}
-
+{{ form.media }}
 
 <!-- 공간 상세 페이지 -->
 
@@ -35,24 +36,56 @@
 <hr>
 
 <!-- 리뷰 -->
-<h2> 리뷰 달기</h2>
 
 {% if user.is_authenticated %}
 <form action = "{% url 'create_review' space.id %}" method="POST">
     {% csrf_token %}
-    별점 :  ☆☆☆☆☆☆ <br>
-    <textarea name = "review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
-    <button type = "submit"> 리뷰 등록 </button>
-</form> 
+    <div>
+        <label for = "review_star"> 공간 유형:</label>
+        <select name = "review_star">
+            <option value=1>⭐</option>
+            <option value=2>⭐⭐</option>
+            <option value=3>⭐⭐⭐</option>
+            <option value=4>⭐⭐⭐⭐</option>
+            <option value=5>⭐⭐⭐⭐⭐</option>
+        </select>
+    </div>
+    <div>
+        <textarea name = "review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
+    </div>
+    <input type = "submit" value="리뷰 등록">
+</form>
 {% endif %}
+
 <br>
 
 <!-- 모든 리뷰 보기 -->
 <h2> 리뷰 보기 </h2>
-{% for review in space.review_set.all %}
-{{ review.review_content|linebreaksbr }} <br>
-{% endfor %}
+<div>
+    {% for review in space.review_set.all %}
+        <div style="border: 1px solid black; width:300px;">
+            <div>
+                {{ review.user_id }}
 
+
+            {% if review.review_star == '1' %}
+                <span text-align="left">⭐</span>
+            {% elif review.review_star == '2' %}
+                <span>⭐⭐</span>
+            {% elif review.review_star == '3' %}
+                <span>⭐⭐⭐</span>
+            {% elif review.review_star == '4' %}
+                <span>⭐⭐⭐⭐</span>
+            {% elif review.review_star == '5' %}
+                <span>⭐⭐⭐⭐⭐</span>
+            {% endif %}
+
+            </div>
+            {{ review.review_content|linebreaksbr }}
+            
+        </div>
+    {% endfor %}
+</div>
 
 <!-- Q&A -->
 <h2> Q&A </h2>
