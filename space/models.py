@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.db.models.deletion import CASCADE
 from django.core.validators import RegexValidator
 from taggit.managers import TaggableManager
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # 1. Space      (fk- User<Host>)
 # 2. Review    (fk- Space, User)
@@ -28,14 +29,14 @@ class Space(models.Model):
         choices=SPACE_TYPE_CHOICES,
         default='STUDY'
     )
-    contactNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    contactNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})')
     contact_number = models.CharField(validators = [contactNumberRegex], max_length = 11, unique = True)
     price = models.IntegerField() # 시간당 가격
     space_brief_detail = models.CharField(max_length=200)
     space_detail = models.TextField()
     tags = TaggableManager(blank=True)
     address = models.CharField(max_length=200, default='')
-    url = models.URLField() # form widget = URLInput
+    url = models.URLField()
     space_likes = models.IntegerField(default=0)
     space_image = models.ImageField(upload_to="space/", blank=True, null=True)
     
@@ -48,7 +49,7 @@ class Booking(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     booker_name = models.CharField(max_length = 50, default='')
-    phoneNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$')
+    phoneNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})')
     phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 11, unique = True)
     num_of_people = models.IntegerField()
     num_of_vaccinated = models.IntegerField()
@@ -64,7 +65,18 @@ class Review(models.Model):
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     review_content = models.TextField()
-    # review_star
+    RATING_TYPE_CHOICES = [
+        ('1', 1),
+        ('2', 2),
+        ('3', 3),
+        ('4', 4),
+        ('5', 5)       
+    ]
+    review_star = models.CharField(
+        max_length = 5,
+        choices = RATING_TYPE_CHOICES,
+        default = '1'
+    )
     
     def __str__(self):
         return self.review_content
