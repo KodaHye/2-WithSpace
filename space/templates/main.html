@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %} 메인 페이지 {% endblock %}
 {% block link %} {% static 'css/image.css' %}{% endblock %}
-
 {% block content %}
 
 <style>
@@ -16,6 +15,11 @@
   top:200px;
   left:430px;
 }
+a:visited {
+  color: black; text-decoration: none;
+}
+
+
 </style>
 
 <head>
@@ -41,7 +45,6 @@
          <img src="{% static 'img/img1.PNG' %}" style="width:1000px; height: 500px; opacity: 0.4;" alt="사진 로드 실패" />
          <div class = "text" style="text-align: center; font-weight: bolder;">
            <span>코로나 위드 사회 속에서<br>함께하는<br>With Cloud 입니다.</span>
-
          </div>
         </div>
        <br><br>
