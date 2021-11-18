@@ -2,31 +2,79 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap, jquery 사용을 위한 코드 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/footer_style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
+
 <body>
-    <nav>네비게이션바</nav>
+        <header>
+            <div class="header1">
+                <div class="header1_contents">
+                    <div id="h1_logo">
+                        <a href="{% url 'main' %}">
+                            withcloud
+                        </a>
+                    </div>
+
+                    <div id="h_button1"><a href="{% url 'main' %}">공간검색</a></div>
+                    <span id="h_button2"><a href="{% url 'register' %}">공간등록</a></span>
+                    
+                    <div class="h_col2_bf">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+                            aria-expanded="false">&nbsp;&nbsp;</button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{% url 'mypage' %}">마이페이지</a></li>
+                                <li><a href="{% url 'host_booking_list' %}">등록한 공간</a></li>
+                                <li><a href="{% url 'booker_booking_list' %}">예약한 공간</a></li>
+                                <li><a href="{% url 'login' %}">로그인</a></li>
+                                <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                            </ul>
+                        </div>
+                        <div id="name"><p>{{request.user}} 님</p></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
     {% block content %}
 
     {% endblock %}
 
-    <footer class = "footer">
-        <div class = "margin">
+    <footer class="footer">
+        <div class="margin">
             <span style="color: #ffffff;">순천향대학교 & 한국기술교욱대학교 연합해커톤</span><br>
             <span style="color: #ffffff;">이예빈, 배연주, 차주원, 고다혜</span><br>
             <span style="color: #ffffff;">E팀은 2팀</span><br>
             <div>
-                <a href="https://github.com/KnS-hacks/2-WithSpace" style="color: #ffffff;">https://github.com/KnS-hacks/2-WithSpace
+                <a href="https://github.com/KnS-hacks/2-WithSpace"
+                    style="color: #ffffff;">https://github.com/KnS-hacks/2-WithSpace
                 </a>
             </div>
-            <div align = "right" style="color: #ffffff;">feat. 멋쟁이 사자처럼</div>    
+            <div text-align="right" style="color: #ffffff;">feat. 멋쟁이 사자처럼</div>
         </div>
-      </footer>
+    </footer>
 </body>
+
 </html>

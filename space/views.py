@@ -42,7 +42,7 @@ def register(request):
             new_space.tags.add(tag)
         return redirect('main')
     else:
-        return render(request, 'register_space.html')
+        return render(request, 'register.html')
 
 
 # 공간 검색 페이지
@@ -156,8 +156,6 @@ def host_booking_list(request):
     return render(request, 'host_booking_list.html', {'book':book, 'space':space})
 
 
-def header(request):
-    return render(request, 'testmainheader.html')
 # 결제 페이지
 def payment(request):
     return render(request, 'payment.html')

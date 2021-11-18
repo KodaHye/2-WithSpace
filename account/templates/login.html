@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <link rel="stylesheet" href="/static/css/main_header.css">
-    <link rel="stylesheet" href="/static/css/footer_style.css">
-    <!-- bootstrap, jquery 사용을 위한 코드 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 메인 페이지 {% endblock %}
+{% block content %}
 
     <style>
         hr {
@@ -90,29 +74,8 @@
 
 </head>
 
-<body>
     <div id="wrap">
-        <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
-        <header>
-            <div class="header1">
-                <div class="header1_contents">
-                    <div id="h1_logo">
-                        <a href="">
-                            withcloud
-                        </a>
-                    </div>
-
-                    <div id="h_button1"><a href="">공간검색</a></div>
-                    <span id="h_button2"><a href="">공간등록</a></span>
-
-                    <div class="h_col2_bf">
-                        <div id="login"><a href="http://127.0.0.1:5502/login.html">로그인</a></div>
-                        <div id="signup"><a href="http://127.0.0.1:5502/sign.html">회원가입</a></div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
+      
         <div id="section_box">
             <div id="makecenter">
                 <div id="logintext">
@@ -149,21 +112,4 @@
         </div>
 
     </div>
-    <!--
-    <footer class="footer">
-        <div class="margin">
-            <span style="color: #ffffff;">순천향대학교 & 한국기술교욱대학교 연합해커톤</span><br>
-            <span style="color: #ffffff;">이예빈, 배연주, 차주원, 고다혜</span><br>
-            <span style="color: #ffffff;">E팀은 2팀</span><br>
-            <div>
-                <a href="https://github.com/KnS-hacks/2-WithSpace"
-                    style="color: #ffffff;">https://github.com/KnS-hacks/2-WithSpace
-                </a>
-            </div>
-            <div text-align="right" style="color: #ffffff;">feat. 멋쟁이 사자처럼</div>
-        </div>
-    </footer>
-    -->
-</body>
-
-</html>
+{% endblock %}
