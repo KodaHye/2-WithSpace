@@ -3,87 +3,88 @@
 {% block title %} 로그인 페이지 {% endblock %}
 {% block content %}
 
-    <style>
-        hr {
-            position: relative;
-            width: 90%;
-            right: 200px;
-            height: 3px;
-            border: 0;
-            border-top: 1px solid #000;
-        }
+<style>
+    hr {
+        position: relative;
+        width: 90%;
+        right: 200px;
+        height: 3px;
+        border: 0;
+        border-top: 1px solid #000;
+    }
 
-        #section_box {
+    #section_box {
 
-            width: 1500px;
-            height: 1600px;
-            margin: 0 auto;
-        }
+        width: 1500px;
+        height: 1600px;
+        margin: 0 auto;
+    }
 
-        #makecenter {
-            padding-top: 200px;
-            padding-bottom: 20px;
-            text-align: center;
-        }
+    #makecenter {
+        padding-top: 200px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
 
-        #logintext {
-            position: relative;
-            right: 200px;
-            font-size: 50px;
-        }
+    #logintext {
+        position: relative;
+        right: 200px;
+        font-size: 50px;
+    }
 
-        #socialbtn {
-            position: relative;
-            cursor: pointer;
-            border-radius: 10px;
-            border: none;
-            padding: 10px 100px;
-            color: black;
-            width: 70%;
-            height: 80px;
-            right: 200px;
-            font-size: 20px;
-        }
+    #socialbtn {
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 100px;
+        color: black;
+        width: 70%;
+        height: 80px;
+        right: 200px;
+        font-size: 20px;
+    }
 
-        .inputid {
-            position: relative;
-            font-size: 20px;
-            width: 100%;
-            height: 30pt;
-            border-radius: 5px;
-            right: 200px;
-            padding: 10px 10px 10px 10px;
-            line-height: 100px;
-        }
+    .inputid {
+        position: relative;
+        font-size: 20px;
+        width: 100%;
+        height: 30pt;
+        border-radius: 5px;
+        right: 200px;
+        padding: 10px 10px 10px 10px;
+        line-height: 100px;
+    }
 
-        #btn {
-            position: relative;
-            cursor: pointer;
-            border-radius: 10px;
-            border: none;
-            background: #C8D9EB;
-            padding: 10px 100px;
-            color: black;
-            width: 68%;
-            height: 80px;
-            right: 200px;
-            top: 180px;
-            font-size: 20px;
-        }
-    </style>
+    #btn {
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+        background: #C8D9EB;
+        padding: 10px 100px;
+        color: black;
+        width: 68%;
+        height: 80px;
+        right: 200px;
+        top: 180px;
+        font-size: 20px;
+    }
+</style>
 
 </head>
 
-    <div id="wrap">
-      
-        <div id="section_box">
-            <div id="makecenter">
-                <div id="logintext">
-                    로그인
-                    <br><br>
-                </div>
+<div id="wrap">
 
-                <!--
+    <div id="section_box">
+        <div id="makecenter">
+            <div id="logintext">
+                로그인
+                <br><br>
+            </div>
+
+            <!-- 소셜 로그인은 일단 생략 -->
+            <!--
                 <button id="socialbtn" style="background: #69f575;">네이버로 로그인</button>
                 <br><br><br><br>
                 <button id="socialbtn" style="background: #e9f85d;">카카오로 로그인</button>
@@ -93,23 +94,24 @@
                 <br><br><br>
                 <hr>
                 <br><br>
-                -->
+            -->
 
-                <form method="POST" action="{% url 'login' %}">
-                    {% csrf_token %}
-                    <div class="inputid">
-                        <input type="text" name="username" placeholder="  아이디" size="80" style="border-radius: 10px;">
-                    </div>
-                    <br><br><br><br><br><br><br>
-                    <div class="inputid">
-                        <input type="password" name="password" placeholder="  비밀번호" size="80"
-                            style="border-radius: 10px;">
-                    </div>
-                    <button id="btn">로그인</button>
-                </form>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="inputid">
+                    <input type="text" name="username" placeholder="  아이디" size="80" style="border-radius: 10px;"
+                        required>
+                </div>
+                <br><br><br><br><br><br><br>
+                <div class="inputid">
+                    <input type="password" name="password" placeholder="  비밀번호" size="80" style="border-radius: 10px;"
+                        required>
+                </div>
+                <button id="btn">로그인</button>
+            </form>
 
-            </div>
         </div>
-
     </div>
+
+</div>
 {% endblock %}
