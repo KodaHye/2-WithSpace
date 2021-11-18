@@ -69,6 +69,7 @@ def create_review(request, id):
         review = Review()
         review.space_id = get_object_or_404(Space, pk=space_id)
         review.review_content = request.POST['review_content']
+        review.review_star = request.POST['review_star']
         review.save()
         return redirect('space', space_id)
 
