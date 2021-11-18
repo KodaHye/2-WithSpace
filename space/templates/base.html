@@ -9,11 +9,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/footer_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_header.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 
 <body>
     <nav>네비게이션바</nav>
+        <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
+        <header>
+            <div class="header1">
+                <div class="header1_contents">
+                    <div id="h1_logo">
+                        <a href="">
+                            withcloud
+                        </a>
+                    </div>
+
+                    <div id="h_button1"><a href="">공간검색</a></div>
+                    <span id="h_button2"><a href="">공간등록</a></span>
+                    
+                    <div class="h_col2_bf">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+                            aria-expanded="false">&nbsp;&nbsp;</button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="">마이페이지</a></li>
+                                <li><a href="">등록한 공간</a></li>
+                                <li><a href="">사용한 공간</a></li>
+                                <li><a href="">로그인</a></li>
+                                <li><a href="">로그아웃</a></li>
+                            </ul>
+                        </div>
+                        <div id="name"><p>임재경 님</p></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
     {% block content %}
 
     {% endblock %}

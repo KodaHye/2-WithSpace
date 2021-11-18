@@ -64,21 +64,21 @@
                             </div>
 
                             <div id="h_button1"><a href="">공간검색</a></div>
-                            <span id="h_button2"><a href="">공간등록</a></span>
+                            <span id="h_button2"><a href="{% url 'register' %}">공간등록</a></span>
                             
                             <div class="h_col2_bf">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
                                     aria-expanded="false">&nbsp;&nbsp;</button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="">마이페이지</a></li>
-                                        <li><a href="">등록한 공간</a></li>
-                                        <li><a href="">사용한 공간</a></li>
-                                        <li><a href="">로그인</a></li>
-                                        <li><a href="">로그아웃</a></li>
+                                        <li><a href="{% url 'mypage' %}">마이페이지</a></li>
+                                        <li><a href="{% url 'host_booking_list' %}">등록한 공간</a></li>
+                                        <li><a href="{% url 'booker_booking_list' %}">사용한 공간</a></li>
+                                        <li><a href="{% url 'login' %}">로그인</a></li>
+                                        <li><a href="{% url 'logout' %}">로그아웃</a></li>
                                     </ul>
                                 </div>
-                                <div id="name"><p>임재경 님</p></div>
+                                <div id="name"><p>{{request.user }} 님</p></div>
                             </div>
                         </div>
                     </div>
