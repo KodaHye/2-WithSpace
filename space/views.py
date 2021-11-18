@@ -1,14 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 
-# 메인 페이지
-def main(request):
-    spaces=Space.objects.all()
-    return render(request, 'main.html', {'spaces':spaces})
 
+"""
+Main Page
+"""
+def main(request):
+    spaces = Space.objects.all()
+    return render(request, 'main.html', {'spaces': spaces})
+
+
+"""
+Space Model
+"""
 # 공간 운영자의 공간 등록 페이지 렌더링
 def register_space(request):
     return render(request, 'register_space.html')
+
 
 # 새로운 공간 등록 페이지 - 데이터 POST
 def register(request):
@@ -41,9 +49,11 @@ def register(request):
 def search_space(request):
     return render(request, 'search_space.html')
 
+
 # 공간 검색 결과 페이지 (검색 필터링 구현 후 리다이렉팅으로 변경)
 def search_result(request):
     return render(request, 'search_result.html')
+
 
 # 공간 디테일 페이지 (공간 pk=id 값으로 페이지 렌더링)
 def space(request, id):
@@ -55,6 +65,7 @@ def space(request, id):
         space_id = id
         return render(request, 'space.html', {'space':space, 'space_id':space_id})
 
+
 # 예약자의 공간 예약 페이지
 def booker_booking(request, id):
     space_id = id
@@ -62,6 +73,10 @@ def booker_booking(request, id):
     # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
     return render(request, 'booking_page.html', {'space': space})
 
+
+"""
+Review Model
+"""
 # 리뷰 생성
 def create_review(request, id):
     space_id = id
@@ -73,6 +88,10 @@ def create_review(request, id):
         review.save()
         return redirect('space', space_id)
 
+
+"""
+Question Model
+"""
 # 질문 생성
 def create_question(request, id):
     space_id = id
@@ -84,6 +103,10 @@ def create_question(request, id):
         question.save()
         return redirect('space', space_id)
     
+
+"""
+Answer Model
+"""
 # 질문에 대한 답변 달기
 def create_answer(request, space_id, question_id):
     if request.method == 'POST':
@@ -93,7 +116,11 @@ def create_answer(request, space_id, question_id):
         answer.answer_content = request.POST['answer_content']
         answer.save()
         return redirect('space', space_id)
-    
+
+
+"""
+Booking Model
+"""
 # 새로운 예약 생성
 def book(request, id):
     space_id = id
@@ -106,7 +133,8 @@ def book(request, id):
         new_booking.num_of_people = request.POST['num_of_people']
         new_booking.num_of_vaccinated = request.POST['num_of_vaccinated']
         new_booking.booking_date = request.POST['booking_date']
-        
+        new_booking.booking_start = request.POST.get('booking_start')
+        new_booking.booking_end = request.POST.get('booking_end')
         # user_id = request.user.id
         # user = User.objects.get(id=user_id)
         new_booking.save()
@@ -114,16 +142,19 @@ def book(request, id):
     else:
         return render(request, 'booking_page.html', {'space':space, 'space_id':space_id})
     
+
 # 예약자의 공간 예약 리스트 페이지 (마이페이지 연동)
 def booker_booking_list(request):
-    book=Booking.objects.all()
+    book = Booking.objects.all()
     return render(request, 'booker_booking_list.html', {'book':book})
+
 
 # 공간 운영자의 공간에 대한 예약 리스트 페이지
 def host_booking_list(request):
-    space=Space.objects.all()
-    book=Booking.objects.all()
+    space = Space.objects.all()
+    book = Booking.objects.all()
     return render(request, 'host_booking_list.html', {'book':book, 'space':space})
+
 
 # 결제 페이지
 def payment(request):

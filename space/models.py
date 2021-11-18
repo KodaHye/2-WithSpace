@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.db.models.deletion import CASCADE
 from django.core.validators import RegexValidator
 from taggit.managers import TaggableManager
-from django.core.validators import MinValueValidator, MaxValueValidator
+from datetime import datetime
 
 # 1. Space      (fk- User<Host>)
 # 2. Review    (fk- Space, User)
@@ -54,11 +54,16 @@ class Booking(models.Model):
     num_of_people = models.IntegerField()
     num_of_vaccinated = models.IntegerField()
     booking_date = models.DateField()
-    # booking_time
+    booking_start = models.TimeField()
+    booking_end = models.TimeField()
     
     def __str__(self):
         return self.booker_name
     
+    def time(self):
+        h = self.booking_end.hour - self.booking_start.hour
+        m = self.booking_end.minute - self.booking_start.minute
+        return h*60 + m
     
 class Review(models.Model):
     # review_id
@@ -81,6 +86,8 @@ class Review(models.Model):
     def __str__(self):
         return self.review_content
     
+    def time(self):
+        return int((self.booking_end - self.booking_start).seconds / 60)
     
 class Question(models.Model):
     # question_id
