@@ -40,7 +40,7 @@
 <form action="{% url 'create_review' space.id %}" method="POST">
     {% csrf_token %}
     <div>
-        <label for="review_star"> 공간 유형:</label>
+        <label for="review_star"> 공간 별점:</label>
         <select name="review_star">
             <option value=1>⭐</option>
             <option value=2>⭐⭐</option>
@@ -87,7 +87,6 @@
 
 <!-- Q&A -->
 <h2> Q&A </h2>
-{% if user.is_authenticated %}
 <form action="{% url 'create_question' space.id %}" method="POST">
     {% csrf_token %}
     질문 작성자 : <input type="text" name="writer" placeholder="작성자 이름"> <br>
@@ -95,7 +94,6 @@
     <textarea name="question_content" cols="70" rows="5" placeholder="{{space.space_name}}에 대해 궁금한 점이 있나요?"></textarea>
     <button type="submit"> 리뷰 등록 </button>
 </form>
-{% endif %}
 <br>
 
 

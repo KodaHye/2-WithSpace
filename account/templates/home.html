@@ -3,10 +3,10 @@
 {% block title %} 메인 페이지 {% endblock %}
 {% block content %}
 
-<h1>홈 화면</h1>
-<a href="{% url 'signup' %}">회원가입</a>
-<a href="{% url 'login' %}">로그인</a>
-<a href="{% url 'logout' %}">로그아웃</a>
-<a href="{% url 'mypage' %}">마이페이지</a>
+<h1>{{request.user}} 님 환영합니다. </h1>
+<a href="{% url 'main' %}">공간 둘러보기</a> <br>
+{% if user.is_authenticated %}
+<a href="{% url 'register' %}">새로운 공간 등록하기</a>
+{% endif %}
 
 {% endblock %}

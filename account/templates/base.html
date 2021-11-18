@@ -33,26 +33,39 @@
                 <div class="header1_contents">
                     <div id="h1_logo">
                         <a href="{% url 'main' %}">
-                            withcloud
+                            withSpace
                         </a>
                     </div>
-
+                    {% if user.is_authenticated %}
                     <div id="h_button1"><a href="{% url 'main' %}">공간검색</a></div>
                     <span id="h_button2"><a href="{% url 'register' %}">공간등록</a></span>
-                    
+                    {% else %}
+                    <div id="h_button1"><a href="{% url 'main' %}">공간검색</a></div>
+                    <span id="h_button2"><a href="{% url 'main' %}">공간 둘러보기</a></span>
+                    {% endif %}
+                  
                     <div class="h_col2_bf">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
                             aria-expanded="false">&nbsp;&nbsp;</button>
                             <ul class="dropdown-menu" role="menu">
+                                {% if user.is_authenticated %}
                                 <li><a href="{% url 'mypage' %}">마이페이지</a></li>
                                 <li><a href="{% url 'host_booking_list' %}">등록한 공간</a></li>
                                 <li><a href="{% url 'booker_booking_list' %}">예약한 공간</a></li>
-                                <li><a href="{% url 'login' %}">로그인</a></li>
                                 <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                                {% else %}
+                                <li><a href="{% url 'signup' %}">회원가입</a></li>
+                                <li><a href="{% url 'login' %}">로그인</a></li>
+                                {% endif %}
+                            
                             </ul>
                         </div>
+                        {% if user.is_authenticated %}
                         <div id="name"><p>{{request.user}} 님</p></div>
+                        {% else %} 
+                        <div id="name"><p> 방문자님 </p></div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

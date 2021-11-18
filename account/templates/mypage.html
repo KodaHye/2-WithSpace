@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} 메인 페이지 {% endblock %}
+{% block title %} 마이 페이지 {% endblock %}
 
 {% block content %}
             <style>
@@ -130,8 +130,8 @@
                         <div id="make_table">
                             <table>
                                 <th width="150">NO.</th>
-                                <th width="700">게시물 이름</th>
-                                <th width="400">예약날짜</th>
+                                <th width="500">예약 공간 </th>
+                                <th width="700">예약 날짜</th>
                                 <!--첫번째줄-->
                                 {% for b in book %}
                                 {% if b.user_id == reqeust.user %}
