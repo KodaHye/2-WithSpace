@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from .models import User
 from django.contrib import auth
-
+from space.models import Booking
 
 def home(request):  # 로그인 성공 시 확인하기 위한 테스트용 페이지
     return render(request, 'home.html')
@@ -55,4 +55,5 @@ def user_logout(request):
 
 
 def mypage(request):
-    return render(request, 'mypage.html')
+    book = Booking.objects.all()
+    return render(request, 'mypage.html', {'book':book})

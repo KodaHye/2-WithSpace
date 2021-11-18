@@ -5,147 +5,80 @@
 
 {% block content %}
 
-            <div id="wrap">
-                <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
-                <div id="section_box">
-                    <div id="makecenter">
-                        <div id="register_space">공간 등록하기</div>
+    <div id="wrap">
+        <div id="section_box">
+            <div id="makecenter">
+                <div id="register_space">공간 등록하기</div>
 
-                        <div id="space_name">공간명</div>
-                        <div><input id="space_name_input" type="text" name="space_name_input" 
-                            size="30" style="border-radius: 10px;"></div>
+                <div id="space_name">공간명</div>
+                <div><input id="space_name_input" type="text" name="space_name" 
+                    size="30" style="border-radius: 10px;"></div>
 
-                        <div id="upload_name">사진 업로드</div>
-                        <!--<form> 태그의 enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시합니다.
-                            이 속성은 <form> 요소의 method 속성값이 “post”인 경우에만 사용할 수 있습니다.-->
-                        <form method="post" enctype="multipart/form-data">
-                            <div class="upload_button">
-                                <label for="chooseFile">
-                                    👉 사진첨부! 👈
-                                </label>
-                            </div>
-                            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
-                        </form>
-
-                        <div id="move_input1">
-                            <div id="space_name">최대수용인원</div>
-                            <div><input id="space_name_input" type="text" name="maximum_people" 
-                                size="30" style="border-radius: 10px;"></div>
-                        </div>
-
-                        <div id="space_name">금액</div>
-                        <div><input id="space_name_input" type="text" name="price" 
-                            size="30" style="border-radius: 10px;"></div>
-                        
-                        <div id="move_input2">
-                            <div id="tel_name">전화번호</div>
-                            <div><input id="tel_input" type="text" name="tel" 
-                                size="20" style="border-radius: 10px;"></div>    
-                        </div>
-
-                        <div id="intro_space">
-                            <div id="space_name">공간소개</div>
-                            <textarea rows="5" cols="50" style="border-radius: 10px;" maxlength="125"></textarea>
-                        </div>
-                        
-                        <br><br><br><br>
-                        <div id="intro_space">
-                            <div id="space_name">상세정보</div>
-                            <textarea rows="5" cols="50" style="border-radius: 10px;"></textarea>
-                        </div>
-
-                        <br><br><br><br>
-                        <div id="space_name">웹 사이트 URL</div>
-                        <form name="urlform" action="" method="post">
-                            <div id="url_input">
-                                <input type="url" name="puturl" size="40" style="border-radius: 10px;">
-                                <span id="submit_url">
-                                    <input type="submit" name="save_url" value="저장" style="border-radius: 10px;">
-                                </span>
-                            </div>
-                        </form>
-
-                        <br><br><br><br>
-                        <div id="intro_space">
-                            <div id="space_name">해시태그설정</div>
-                            <textarea rows="3" cols="50" style="border-radius: 10px;"></textarea>
-                        </div>
-
-
-                        <div id="submit_btn">
-                            <button>등록</button>
-                        </div>
-
-                        
-
+                <div id="upload_name">사진 업로드</div>
+                <!--<form> 태그의 enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시합니다.
+                    이 속성은 <form> 요소의 method 속성값이 “post”인 경우에만 사용할 수 있습니다.-->
+                <form method="post" enctype="multipart/form-data">
+                    <div class="upload_button">
+                        <label for="chooseFile">
+                            👉 사진첨부! 👈
+                        </label>
                     </div>
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                </form>
+
+                <div id="move_input1">
+                    <div id="space_name">최대 수용 인원</div>
+                    <div><input id="space_name_input" type="text" name="num_of_people" 
+                        size="30" style="border-radius: 10px;"></div>
                 </div>
 
+                <div id="space_name">금액</div>
+                <div><input id="space_name_input" type="text" name="price" 
+                    size="30" style="border-radius: 10px;"></div>
+                
+                <div id="move_input2">
+                    <div id="tel_name">전화번호</div>
+                    <div><input id="tel_input" type="text" name="contact_number" 
+                        size="20" style="border-radius: 10px;"></div>    
+                </div>
+
+                <div id="intro_space">
+                    <div id="space_name">공간소개</div>
+                    <textarea rows="5" cols="50" name="space_breif_detail" style="border-radius: 10px;" maxlength="125"></textarea>
+                </div>
+                
+                <br><br><br><br>
+                <div id="intro_space">
+                    <div id="space_name">상세정보</div>
+                    <textarea rows="5" cols="50" name="space_detail" style="border-radius: 10px;"></textarea>
+                </div>
+
+                <br><br><br><br>
+                <div id="space_name">웹 사이트 URL</div>
+                <form name="urlform" action="" method="post">
+                    <div id="url_input">
+                        <input type="url" name="url" size="40" style="border-radius: 10px;">
+                        <span id="submit_url">
+                            <input type="submit" name="save_url" value="저장" style="border-radius: 10px;">
+                        </span>
+                    </div>
+                </form>
+
+                <br><br><br><br>
+                <div id="intro_space">
+                    <div id="space_name">해시태그설정</div>
+                    <textarea rows="3" cols="50" name="tags" placeholder="쉼표(,)로 구분해주세요" style="border-radius: 10px;"></textarea>
+                </div>
+
+
+                <div id="submit_btn">
+                    <button>등록</button>
+                </div>
+
+                
+
             </div>
+        </div>
+
+    </div>
   {% endblock %}
-
-    <!-- 
-
-<form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
-    {% csrf_token %}
-
-    <div>
-        <label for = "space_name"> 공간 이름:  </label> 
-        <input type= "text" name = "space_name" placeholder="공간 이름">
-    </div>
-
-    <div>
-        <label for = "space_type"> 공간 유형:</label>
-        <select name = "space_type">
-            <option value="STUDY"> 스터디룸 </option>
-            <option value="STUDIO"> 촬영 스튜디오 </option>
-            <option value="CAFE"> 카페 단체석 </option>
-            <option value="RESTAURANT"> 음식점 단체석 </option>
-            <option value="MEETING"> 회의실 </option>
-            <option value="ETC"> 기타 </option>
-        </select>
-    </div>
-
-    <div>
-        <label for = "contact_number"> 전화 번호 : </label>
-        <input type = "text" name = "contact_number">
-    </div>
-
-    <div>
-        <label for = "price"> 시간 당 가격 : </label>
-        <input type = "number" name = "price">
-    </div>
-
-    <div>
-        <label for = "space_brief_detail"> 공간 정보 : </label>
-        <input type = "text" name = "space_brief_detail">
-    </div>
-
-    <div>
-        <label for = "space_detail"> 공간 상세 정보 : </label>
-        <textarea name = "space_detail" cols="80" rows="10"></textarea>
-    </div>
-
-    <div>
-        <label for = "tags"> 태그 달기 </label>
-        <input type = "text" name = "tags">
-    </div>
-    <div>
-        <label for = "address">주소 : </label> 
-        <input type = "text" name = "address">
-    </div>
-
-    <div>
-        <label for = "url"> 웹사이트 url : </label>
-        <input type = "url" name = "url" placeholder= "https://example.com" size="100">
-    </div>
-
-    <div>
-        <label for = "space_image"> 대표 이미지 업로드 : </label>
-        <input type = "file" name = "space_image" accept="image/png, image/jpeg">
-    </div>
-
-    <button type = "submit"> 등록 완료 </button>
-
-</form>
- -->
