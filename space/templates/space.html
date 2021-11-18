@@ -10,8 +10,8 @@
 <!-- 공간 상세 페이지 -->
 
 {% if space.space_image %}
-사진 : <img src = "{{space.space_image.url}}" width="150">
-{% endif %} 
+사진 : <img src="{{space.space_image.url}}" width="150">
+{% endif %}
 
 <div> 공간 운영자 : {{space.host_id}} </div>
 <div> 공간 이름 : {{space.space_name}} </div>
@@ -30,19 +30,18 @@
 
 <br>
 
-<button><a href = "{% url 'book' space.id %}"> 예약하기 </a></button>
+<button><a href="{% url 'book' space.id %}"> 예약하기 </a></button>
 
 
 <hr>
 
 <!-- 리뷰 -->
-
 {% if user.is_authenticated %}
-<form action = "{% url 'create_review' space.id %}" method="POST">
+<form action="{% url 'create_review' space.id %}" method="POST">
     {% csrf_token %}
     <div>
-        <label for = "review_star"> 공간 유형:</label>
-        <select name = "review_star">
+        <label for="review_star"> 공간 유형:</label>
+        <select name="review_star">
             <option value=1>⭐</option>
             <option value=2>⭐⭐</option>
             <option value=3>⭐⭐⭐</option>
@@ -51,9 +50,9 @@
         </select>
     </div>
     <div>
-        <textarea name = "review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
+        <textarea name="review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
     </div>
-    <input type = "submit" value="리뷰 등록">
+    <input type="submit" value="리뷰 등록">
 </form>
 {% endif %}
 
@@ -63,40 +62,39 @@
 <h2> 리뷰 보기 </h2>
 <div>
     {% for review in space.review_set.all %}
-        <div style="border: 1px solid black; width:300px;">
-            <div>
-                {{ review.user_id }}
-
+    <div style="border: 1px solid black; width:300px;">
+        <div>
+            {{ review.user_id }}
 
             {% if review.review_star == '1' %}
-                <span text-align="left">⭐</span>
+            <span text-align="left">⭐</span>
             {% elif review.review_star == '2' %}
-                <span>⭐⭐</span>
+            <span>⭐⭐</span>
             {% elif review.review_star == '3' %}
-                <span>⭐⭐⭐</span>
+            <span>⭐⭐⭐</span>
             {% elif review.review_star == '4' %}
-                <span>⭐⭐⭐⭐</span>
+            <span>⭐⭐⭐⭐</span>
             {% elif review.review_star == '5' %}
-                <span>⭐⭐⭐⭐⭐</span>
+            <span>⭐⭐⭐⭐⭐</span>
             {% endif %}
 
-            </div>
-            {{ review.review_content|linebreaksbr }}
-            
         </div>
+        {{ review.review_content|linebreaksbr }}
+
+    </div>
     {% endfor %}
 </div>
 
 <!-- Q&A -->
 <h2> Q&A </h2>
 {% if user.is_authenticated %}
-<form action = "{% url 'create_question' space.id %}" method="POST">
+<form action="{% url 'create_question' space.id %}" method="POST">
     {% csrf_token %}
-    질문 작성자 : <input type = "text" name = "writer" placeholder="작성자 이름"> <br>
+    질문 작성자 : <input type="text" name="writer" placeholder="작성자 이름"> <br>
     질문 내용: <br>
-    <textarea name = "question_content" cols="70" rows="5" placeholder="{{space.space_name}}에 대해 궁금한 점이 있나요?"></textarea>
-    <button type = "submit"> 리뷰 등록 </button>
-</form> 
+    <textarea name="question_content" cols="70" rows="5" placeholder="{{space.space_name}}에 대해 궁금한 점이 있나요?"></textarea>
+    <button type="submit"> 리뷰 등록 </button>
+</form>
 {% endif %}
 <br>
 
@@ -107,16 +105,17 @@
 <b>{{ question.writer|linebreaksbr }} </b>님의 질문 : {{ question.question_content|linebreaksbr }} <br>
 
 <!-- 현재 user가 공간 등록자와 동일한 유저라면 위의 질문에 대한 답변 등록 가능-->
-{% if request.user == space.host_id %} 
+{% if request.user == space.host_id %}
 <h4> 공간 운영자 {{user}} 님의 답변 달기 </h4>
-<form action = "{% url 'create_answer' space.id question.id %}" method="POST">
+<form action="{% url 'create_answer' space.id question.id %}" method="POST">
     {% csrf_token %}
-    답변 : 
-    <textarea name = "question_content" cols="30" rows="5" placeholder="{{question.writer}}님의 질문에 대한 답을 달아주세요."></textarea>
-    <button type = "submit"> 답변 등록 </button>
-</form> 
+    답변 :
+    <textarea name="question_content" cols="30" rows="5"
+        placeholder="{{question.writer}}님의 질문에 대한 답을 달아주세요."></textarea>
+    <button type="submit"> 답변 등록 </button>
+</form>
 {% endif %}
 {% endfor %}
 
 
-{% endblock %} 
+{% endblock %}
