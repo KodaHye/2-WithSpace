@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} 메인 페이지 {% endblock %}
-{% block js %}<script src="{% static 'js/slide.js' %}"></script>{% endblock %}
 {% block link %} {% static 'css/image.css' %}{% endblock %}
 
 {% block content %}
@@ -57,10 +56,8 @@
            <span style="float: right;"><a href="">자세히보기</span>
        </div>
        
-       <!-- <div style="min-width: 1000px;"> -->
-         <div class="row">
-             
 
+         <div class="row">
           <!-- 새로 추가한 부분 여기서부터 -->
             {% for space in spaces %}
             
