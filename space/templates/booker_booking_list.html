@@ -7,23 +7,23 @@
 
 <aside class="container">
     <div style="padding-bottom: 50px;">
-        <span class = "title"> {{ request.user }} 님의 예약 리스트입니다.</span> <br> 
+        <span class="title"> {{ request.user }} 님의 예약 리스트입니다.</span> <br>
     </div>
 
     <br>
     <div style="padding: 20px 3px 20px">
         <span style="font-weight: bolder; font-size: 27px;">예약정보</span><br>
     </div>
-    {% for b in book %} 
+    {% for b in book %}
     {% if b.user_id == reqeust.user %}
-    <div class = "info_table">
+    <div class="info_table">
         <table>
             <tr>
-                <td width = "200"><b>예약자 이름</b></td>
+                <td width="200"><b>예약자 이름</b></td>
                 <td>{{ b.booker_name }}</td>
             </tr>
-                <td><b>전화번호</b></td>
-                <td>{{ b.phoneNumber }}</td>
+            <td><b>전화번호</b></td>
+            <td>{{ b.phoneNumber }}</td>
             </tr>
             <tr>
                 <td><b>공간명</b></td>
@@ -43,17 +43,17 @@
             </tr>
             <tr>
                 <td><b>예약 시간</b></td>
-                <td> {{b.booking_start}}~{{b.booking_end}} ({{b.time}}분</td>
+                <td> {{b.booking_start}}~{{b.booking_end}} ({{b.time}}분)</td>
             </tr>
             <tr>
                 <td><b>총 결제 금액</b></td>
                 <td>{{ b.space_id.price }}</td>
             </tr>
-        </table> 
-    </div> 
+        </table>
+    </div>
     <br><br>
     {% endif %}
-        {% endfor %} <br>
+    {% endfor %} <br>
 </aside>
 
 

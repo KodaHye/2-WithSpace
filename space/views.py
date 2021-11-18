@@ -78,15 +78,24 @@ def booker_booking(request, id):
 Review Model
 """
 # 리뷰 생성
-def create_review(request, id):
-    space_id = id
+def create_review(request, space_id):
     if request.method == 'POST':
         review = Review()
         review.space_id = get_object_or_404(Space, pk=space_id)
+        
+        user_id = request.user.id
+        review.user_id = User.objects.get(id=user_id)
         review.review_content = request.POST['review_content']
         review.review_star = request.POST['review_star']
         review.save()
         return redirect('space', space_id)
+
+
+# 리뷰 삭제
+def delete_review(request, space_id, review_id):
+    my_review = Review.objects.get(pk=review_id)
+    my_review.delete()
+    return redirect('space', space_id)
 
 
 """
