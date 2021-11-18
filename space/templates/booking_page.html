@@ -4,36 +4,53 @@
 {% block link %} {% static 'css/style.css' %}{% endblock %}
 {% block content %}
 
-<form method = "post" action = "{% url 'book' space.id %}" enctype='multipart/form-data'>
+<form method="post" action="{% url 'book' space.id %}" enctype='multipart/form-data'>
     {% csrf_token %}
-    
-<div class = "container">
-        <span style="font-size: 35px; font-weight: bolder;"> <b>{{ space.space_name }} </b>예약하기</span> 
-         <div id = "content">
-             <!-- <span id = "title">예약자 대표l 이름</span><br> -->
-             <div class = title>예약대표 이름</div>
-             <input type="text" name="booker_name" placeholder="예약자 이름을 입력해주세요." style="width: 100%; height: 30pt;">
-            </div>
-            <div id = "content">
-                <div id = title>전화 번호</div>
+
+    <div class="container">
+        <span style="font-size: 35px; font-weight: bolder;"> <b>{{ space.space_name }} </b>예약하기</span>
+        <div id="content">
+            <!-- <span id = "title">예약자 대표l 이름</span><br> -->
+            <div class=title>예약대표 이름</div>
+            <input type="text" name="booker_name" placeholder="예약자 이름을 입력해주세요." style="width: 100%; height: 30pt;">
+        </div>
+        <div id="content">
+            <div id=title>전화 번호</div>
             <input type="text" name="phoneNumber" style="width: 100%; height: 30pt;" placeholder="전화번호를 입력해주세요.">
         </div>
-        <div id = "content">
-            <div id = title>예약인원 (숫자만 입력)</div>
-            <input type="number" name = "num_of_people" style="width: 49%; height: 30pt;" placeholder="총 인원 (명)">
-            <input type="number" name = "num_of_vaccinated" style="width: 49%; height: 30pt; float: right;" placeholder="백신 접종자 (명)">
-            <div id = "content">
-                <div id = title>
-                    <label for="booking_date">예약날짜 설정 : </label>
-                    <input type="date" name="booking_date" value="2021-11-15" id="start" min="2021-11-15" max="2022-12-31">
+        <div id="content">
+            <div id=title>예약인원 (숫자만 입력)</div>
+            <input type="number" name="num_of_people" style="width: 49%; height: 30pt;" placeholder="총 인원 (명)">
+            <input type="number" name="num_of_vaccinated" style="width: 49%; height: 30pt; float: right;"
+                placeholder="백신 접종자 (명)">
+            <div id="content">
+                <div id=title>
+                    <label for="booking_date">예약 날짜 설정 : </label>
+                    <input type="date" name="booking_date" value="2021-11-15" id="start" min="2021-11-15"
+                        max="2022-12-31">
                 </div>
             </div>
-        <div id = "content">
-            <div id = title>총 결제 금액</div><br>
-            금액 출력
-        </div> <br>
-        <button type = "submit">예약 완료</button>
-</div>
-
+            <div id="content">
+                <div id="title">
+                    <label for="booking_start">예약 시작 시간: </label>
+                    <input type="text" id="time1" name="booking_start" style="width:200px;">
+                </div>
+                <div id="title">
+                    <label for="booking_end">예약 종료 시간: </label>
+                    <input type="text" id="time2" name="booking_end" style="width:200px;">
+                </div>
+                {{ booking.duration }}
+            </div>
+            <div id="content">
+                <div id=title>총 결제 금액</div><br>
+                금액 출력
+            </div> <br>
+            <button type="submit">예약 완료</button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="/static/js/time.js"></script>
 </form>
 {% endblock %}
