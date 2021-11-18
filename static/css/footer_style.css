@@ -1,36 +1,41 @@
-#main {
-    display: flex;
+#content {
+    padding-top: 15px;
 }
-footer {
-    padding: 30px;
+#title {
+    padding-bottom: 5px;
+    font-size: 20px;
 }
-.footer {
+/* 테두리 색이랑 호버효과 변경, 추가해야됨*/
+#button {
     background-color: #CAD9EC;
-
+    width: 200pt; 
+    height: 30pt
 }
-.text {
-    color: #ffffff;
+.container{
+    width: 1000px;
+    margin:0 auto;
 }
-.navbar {
-    display: flex;
-    position: sticky;
-    top: 0;
-    background-color: rgb(254, 255, 169);
+.title {
+    font-size: 35px; 
+    font-weight: bolder;
 }
-
-.navbar a {
-    padding: 14px;
-    margin-left: 15px;
+.search_div{
+    height: 40px;
+    width: 1000px;
+    border:1px solid #bbb7b7;
 }
-.navbar a:hover {
-    color: black;
-    background-color: white;
-}
-.margin {
-    margin-left:10px;
-    margin-right:10px;
-}
-#wrapper {
-    position: relative;
+button {
+    width: 50px;
     height: 100%;
+    border: 0px;
+    outline: none;
+    float: right;
+}
+input {
+    padding-left: 10px;
+    width: 325px;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    float:left
 }

@@ -26,6 +26,7 @@ a:visited {
   border-color: #CAD9EC;
   border-radius: 3px;
 }
+
 </style>
 
 <head>
@@ -47,6 +48,10 @@ a:visited {
 </head>
 
 <div class = "container">
+  <div>
+
+    
+  </div>
        <div class ="image">
          <img src="{% static 'img/img1.PNG' %}" style="width:1000px; height: 500px; opacity: 0.4;" alt="사진 로드 실패" />
          <div class = "text" style="text-align: center; font-weight: bolder;">
@@ -60,7 +65,7 @@ a:visited {
            <button>검색</button>
        </div>
        <br> <br>
-       <div style="width: 1000px;">
+       <div style="width: 1000px; padding-bottom: 10px;">
            <span>내가 필요한 공간 찾기</span>
            <span style="float: right;"><a href="">자세히보기</span>
        </div>
@@ -84,7 +89,7 @@ a:visited {
                    </div><br>
                    <div style="margin-bottom: 3px;"><span> <b>주소</b> {{space.address}}</span> </div>
                    <div style="margin-bottom: 3px;"><b> 가격 </b> <span> {{space.price}}원 / 시간 </span></div>
-                   <a href="{% url 'space' space.id %}"><span style="color: #A9A9A9;">자세히 보기</span></a>
+                   <a href="{% url 'space' space.id %}"><span class = "detail" style="color: #A9A9A9;">자세히 보기</span></a>
                  </div>
                </div>
             </div>
@@ -95,7 +100,7 @@ a:visited {
 
           
       </div>
-   </div>
+</div>
 
 
 {% endblock %}
