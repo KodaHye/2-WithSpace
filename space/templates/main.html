@@ -19,7 +19,13 @@ a:visited {
   color: black; text-decoration: none;
 }
 
-
+.tag_style {
+  height: auto; 
+  border: 1px solid; 
+  display: inline-block;
+  border-color: #CAD9EC;
+  border-radius: 3px;
+}
 </style>
 
 <head>
@@ -69,16 +75,16 @@ a:visited {
                  {% if space.space_image %}
                  <img src="{{ space.space_image.url }}" alt="사진 로드 실패" />
                  {% endif %}
-                 <div class="caption">
+                 <div class="caption" >
                    <h3>{{ space.space_name }}</h3>
-                   {% for tag in space.tags.all %}
-                      #{{ tag.name }}
-                  {% endfor %} 
-                  <br>
-                   <span> 주소 : {{space.address}}</span> <br>
-                   <b> 가격 </b> <span> {{space.price}}/시간 </span> <br>
-                   
-                   <a href="{% url 'space' space.id %}">자세히 보기</a>
+                   <div class ="tag_style" style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
+                     {% for tag in space.tags.all %}
+                     <span style="color: #9CC2F3"><b>#{{ tag.name }}</b></span>
+                     {% endfor %} 
+                   </div><br>
+                   <div style="margin-bottom: 3px;"><span> <b>주소</b> {{space.address}}</span> </div>
+                   <div style="margin-bottom: 3px;"><b> 가격 </b> <span> {{space.price}}원 / 시간 </span></div>
+                   <a href="{% url 'space' space.id %}"><span style="color: #A9A9A9;">자세히 보기</span></a>
                  </div>
                </div>
                </div>
