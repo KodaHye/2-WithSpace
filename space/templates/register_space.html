@@ -1,234 +1,12 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %} 운영자의 공간 등록 페이지 {% endblock %}
+{% block title %} 공간 예약 페이지 {% endblock %}
+{% block link %} {% static 'css/register_space.css' %}{% endblock %}
 
 {% block content %}
 
-
-<form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
-    {% csrf_token %}
-
-    <div>
-        <label for = "space_name"> 공간 이름:  </label> 
-        <input type= "text" name = "space_name" placeholder="공간 이름">
-    </div>
-
-    <div>
-        <label for = "space_type"> 공간 유형:</label>
-        <select name = "space_type">
-            <option value="STUDY"> 스터디룸 </option>
-            <option value="STUDIO"> 촬영 스튜디오 </option>
-            <option value="CAFE"> 카페 단체석 </option>
-            <option value="RESTAURANT"> 음식점 단체석 </option>
-            <option value="MEETING"> 회의실 </option>
-            <option value="ETC"> 기타 </option>
-        </select>
-    </div>
-
-    <div>
-        <label for = "contact_number"> 전화 번호 : </label>
-        <input type = "text" name = "contact_number">
-    </div>
-
-    <div>
-        <label for = "price"> 시간 당 가격 : </label>
-        <input type = "number" name = "price">
-    </div>
-
-    <div>
-        <label for = "space_brief_detail"> 공간 정보 : </label>
-        <input type = "text" name = "space_brief_detail">
-    </div>
-
-    <div>
-        <label for = "space_detail"> 공간 상세 정보 : </label>
-        <textarea name = "space_detail" cols="80" rows="10"></textarea>
-    </div>
-
-    <div>
-        <label for = "tags"> 태그 달기 </label>
-        <input type = "text" name = "tags">
-    </div>
-    <div>
-        <label for = "address">주소 : </label> 
-        <input type = "text" name = "address">
-    </div>
-
-    <div>
-        <label for = "url"> 웹사이트 url : </label>
-        <input type = "url" name = "url" placeholder= "https://example.com" size="100">
-    </div>
-
-    <div>
-        <label for = "space_image"> 대표 이미지 업로드 : </label>
-        <input type = "file" name = "space_image" accept="image/png, image/jpeg">
-    </div>
-
-    <button type = "submit"> 등록 완료 </button>
-
-</form>
-
-{% endblock %} -->
-
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <link rel="stylesheet" href="./css/main_header.css">
-        <link rel="stylesheet" href="./css/footer.css">
-        <!-- bootstrap, jquery 사용을 위한 코드 -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
-        <meta charset="UTF-8">
-
-            <style>
-                #section_box {
-                    width: 1500px;
-                    height: 1600px;
-                    margin: 0 auto;
-                }
-                #makecenter {
-                    padding-top: 200px;
-                    padding-bottom: 20px;
-                    text-align: center;
-                }
-                #register_space {
-                    position: relative;
-                    text-align: left;
-                    bottom: 100px;
-                    left: 50px;
-                    font-size: 40px;
-                }
-                #space_name {
-                    position: relative;
-                    text-align: left;
-                    left: 55px;
-                    font-size: 30px;
-                }
-                #space_name_input {
-                    position: relative;
-                    right: 450px;
-                    top: 15px;
-                    height: 60px;
-                    font-size: 25px;
-                    padding: 10px 10px 10px 10px;
-                    
-                }
-                #upload_name {
-                    position: relative;
-                    font-size: 30px;
-                    left: 100px;
-                    bottom: 100px;
-                }
-
-                .upload_button {
-                    display: flex;
-                    justify-content: center;
-                }
-                label {
-                    cursor: pointer;
-                    font-size: 3em;
-                    position: relative;
-                    left: 100px;
-                    
-                }
-
-                /* 못생긴 기존 input 숨기기 */
-                #chooseFile {
-                    visibility: hidden;
-                }
-
-                #move_input1 {
-                    position: relative;
-                    bottom: 70px;
-                }
-                #move_input2 {
-                    position: relative;
-                    bottom: 103px;
-                    left: 600px;
-                }
-                #intro_space textarea{
-                    position: relative;
-                    right: 215px;
-                    top: 20px;
-                    padding: 10px 10px 10px 10px;
-                    resize: none;
-                    font-size:30px;
-                }
-                #url_input input{
-                    position: relative;
-                    right: 325px;
-                    top: 15px;
-                    height: 60px;
-                    font-size: 25px;
-                    padding: 10px 10px 10px 10px;
-                }
-                #submit_url {
-                    
-                }
-                #tel_name {
-                    position: relative;
-                    text-align: left;
-                    left: 70px;
-                    font-size: 30px;
-                }
-                #tel_input {
-                    position: relative;
-                    right: 505px;
-                    top: 15px;
-                    height: 60px;
-                    font-size: 25px;
-                    padding: 10px 10px 10px 10px;
-                }
-                #submit_btn button{
-                    position: relative;
-                    border-radius: 10px;
-                    font-size: 30px;
-                    height: 70px;
-                    left: 190px;
-                    top: 100px;
-                    padding-right: 50px;
-                    padding-left: 50px;
-
-                    
-                }
-
-            </style>
-            
-        </head>
-
-        <body>
             <div id="wrap">
                 <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
-                <header>
-                    <div class="header1">
-                        <div class="header1_contents">
-                            <div id="h1_logo">
-                                <a href="">
-                                    withcloud
-                                </a>
-                            </div>
-
-                            <div id="h_button1"><a href="">공간검색</a></div>
-                            <span id="h_button2"><a href="">공간등록</a></span>
-                            
-                            <div class="h_col2_bf">
-                                <div id="login"><a href="">로그인</a></div>
-                                <div id="signup"><a href="">회원가입</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
                 <div id="section_box">
                     <div id="makecenter">
                         <div id="register_space">공간 등록하기</div>
@@ -304,5 +82,70 @@
                 </div>
 
             </div>
-        </body>
-    </html>
+  {% endblock %}
+
+    <!-- 
+
+<form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    <div>
+        <label for = "space_name"> 공간 이름:  </label> 
+        <input type= "text" name = "space_name" placeholder="공간 이름">
+    </div>
+
+    <div>
+        <label for = "space_type"> 공간 유형:</label>
+        <select name = "space_type">
+            <option value="STUDY"> 스터디룸 </option>
+            <option value="STUDIO"> 촬영 스튜디오 </option>
+            <option value="CAFE"> 카페 단체석 </option>
+            <option value="RESTAURANT"> 음식점 단체석 </option>
+            <option value="MEETING"> 회의실 </option>
+            <option value="ETC"> 기타 </option>
+        </select>
+    </div>
+
+    <div>
+        <label for = "contact_number"> 전화 번호 : </label>
+        <input type = "text" name = "contact_number">
+    </div>
+
+    <div>
+        <label for = "price"> 시간 당 가격 : </label>
+        <input type = "number" name = "price">
+    </div>
+
+    <div>
+        <label for = "space_brief_detail"> 공간 정보 : </label>
+        <input type = "text" name = "space_brief_detail">
+    </div>
+
+    <div>
+        <label for = "space_detail"> 공간 상세 정보 : </label>
+        <textarea name = "space_detail" cols="80" rows="10"></textarea>
+    </div>
+
+    <div>
+        <label for = "tags"> 태그 달기 </label>
+        <input type = "text" name = "tags">
+    </div>
+    <div>
+        <label for = "address">주소 : </label> 
+        <input type = "text" name = "address">
+    </div>
+
+    <div>
+        <label for = "url"> 웹사이트 url : </label>
+        <input type = "url" name = "url" placeholder= "https://example.com" size="100">
+    </div>
+
+    <div>
+        <label for = "space_image"> 대표 이미지 업로드 : </label>
+        <input type = "file" name = "space_image" accept="image/png, image/jpeg">
+    </div>
+
+    <button type = "submit"> 등록 완료 </button>
+
+</form>
+ -->
