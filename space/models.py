@@ -14,7 +14,7 @@ from datetime import datetime
 
 class Space(models.Model):
     # space_id
-    host_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    host_id = models.ForeignKey('account.User', on_delete=models.CASCADE, null=True)
     space_name = models.CharField(max_length=30)
     SPACE_TYPE_CHOICES = [
         ('STUDY', '스터디룸'),
@@ -47,7 +47,7 @@ class Space(models.Model):
 class Booking(models.Model):
     # booking_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey('account.User', on_delete=models.CASCADE, null=True)
     booker_name = models.CharField(max_length = 50, default='')
     phoneNumberRegex = RegexValidator(regex = r'^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})')
     phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 11, unique = True)
@@ -68,7 +68,7 @@ class Booking(models.Model):
 class Review(models.Model):
     # review_id
     space_id = models.ForeignKey(Space, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey('account.User', on_delete=models.CASCADE, null=True)
     review_content = models.TextField()
     RATING_TYPE_CHOICES = [
         ('1', 1),
@@ -102,7 +102,7 @@ class Question(models.Model):
 class Answer(models.Model):
     # answer_id
     question_id =models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # space의 host_id
+    user_id = models.ForeignKey('account.User', on_delete=models.CASCADE, null=True) # space의 host_id
     answer_content = models.TextField()
     
     def __str__(self):
