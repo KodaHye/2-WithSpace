@@ -3,8 +3,6 @@
 {% block title %} 검색 결과 페이지 {% endblock %}
 {% block link %} {% static 'css/table.css' %}{% endblock %}
 
-{% block content %}
-
 
 <style>
     .box{
@@ -19,6 +17,52 @@
         <div style="padding-bottom: 20px;">
             <span id = "title" style="font-size: 35px; font-weight: bolder;">당신을 위한 Cloud입니다.</span> <br> 
         </div>
-</div>
 
+        {% block content %}
+    <h3> {{ keyword }}과 관련된 게시물 : {{space.count}} 개</h3>
+
+
+    <div class="content">
+      <div id="hashtag_posting">
+        {% if space %}
+        {% for s in space %}
+        <h2>{{s.space_name}} 
+            {% if s.space_type == "STUDY" %} 
+            ({{s.space_type}} ROOM) 
+            {% else %} 
+            ({{s.space_type}})
+            {% endif %} </h2>
+        <div style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
+            {% for tag in s.tags.all %}
+            <span class ="tag_style" style="color: #9CC2F3; border:1px solid; border-radius:20px "><b>#{{ tag.name }} </b></span> &nbsp;
+            {% endfor %} 
+            <br>
+
+    
+       {% if s.space_image %}
+        <img src="{{ s.space_image.url }}" width="300" alt="사진 로드 실패" />
+        {% endif %}
+        <div class="caption" >
+       <h3> <a href="{% url 'space' s.id %}"> 공간 {{s.space_name}} 바로가기 <br><br> </a> </h3>
+       {% endfor %}
+       {% else %}
+       <img id="photo"">
+       {% endif %}
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      
+
+      <div class="image_box">
+        {% for post in post.all %}
+        <img id="image_box" src="{{ space.space_image.url }}">
+        {% endfor %}
+      </div>
+    </div>
 {% endblock %}
+
+</div>
