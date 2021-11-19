@@ -67,7 +67,12 @@ a:visited {
        <div class = "search_div">
         <form method='post' action="{% url 'search_space' %}">
           {% csrf_token %}
+<<<<<<< HEAD
           <input class = "main_input" type="text" name = "search_button" placeholder="공간을 검색해보세요. (장소, 조건)" >
+=======
+          <input class = "main_input" type="text" name = "search_button" placeholder="공간을를 검색해보세요. (장소, 조건)">
+          </form>
+>>>>>>> 152148fcf3fefe662e66bc8aa18bf17c8def5d3d
       
        </div>
        <br> <br>
@@ -80,7 +85,6 @@ a:visited {
          <div class="row">
           <!-- 새로 추가한 부분 여기서부터 -->
             {% for space in spaces %}
-
             <div class="col-sm-6 col-md-6" style ="width: 515px;">  
               <div class="thumbnail" >
                  {% if space.space_image %}
@@ -90,7 +94,9 @@ a:visited {
                    <h3>{{ space.space_name }}</h3>
                    <div style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
                      {% for tag in space.tags.all %}
-                     <span class ="tag_style" style="color: #9CC2F3"><b>#{{ tag.name }} &nbsp; </b></span>
+                    <span class ="tag_style" style="color: #9CC2F3">
+                        <b>#{{ tag.name }} &nbsp; </b>
+                    </span>
                      {% endfor %} 
                    </div>
                    <div style="margin-bottom: 3px;"><span> <b>주소</b> {{space.address}}</span> </div>
