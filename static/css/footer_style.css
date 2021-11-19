@@ -15,12 +15,6 @@
     width: 1000px;
     margin:0 auto;
 }
-<<<<<<< HEAD
-
-.margin {
-    margin-left:10px;
-    margin-right:10px;
-=======
 .title {
     font-size: 35px; 
     font-weight: bolder;
@@ -36,7 +30,6 @@ button {
     border: 0px;
     outline: none;
     float: right;
->>>>>>> 4b3143ce08c63da4bffd00f96e133fc9da616730
 }
 input {
     padding-left: 10px;
