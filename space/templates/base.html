@@ -10,7 +10,7 @@
 
     <!-- bootstrap, jquery 사용을 위한 코드 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -28,53 +28,57 @@
 </head>
 
 <body>
-        <header>
-            <div class="header1">
-                <div class="header1_contents">
+    <header>
+        <div class="header1">
+            <div class="header1_contents">
 
-                    <div id="h1_logo" style="margin-right: 10px;">
-                        <a href="{% url 'main' %}">
-                           <img src="{% static 'images/WithSpaceLogo.jpg' %}" alt="이미지 로드 안됨" width="100px"> </a>
-                    </div>
-                    <div id="h1_logo">
-                        <a href="{% url 'main' %}">
-                            withSpace
-                        </a>
-                    </div>
-                    {% if user.is_authenticated %}
-                    <div id="h_button1"><a href="{% url 'search' %}">공간검색</a></div>
-                    <span id="h_button2"><a href="{% url 'register' %}">공간등록</a></span>
-                    {% else %}
-                    <div id="h_button1"><a href="{% url 'search' %}">공간검색</a></div>
-                    <span id="h_button2"><a href="{% url 'main' %}">공간 둘러보기</a></span>
-                    {% endif %}
-                  
-                    <div class="h_col2_bf">
-                        <!-- <div class="btn-group"> -->
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
-                            aria-expanded="false">&nbsp;&nbsp;</button>
-                            <ul class="dropdown-menu" role="menu">
-                                {% if user.is_authenticated %}
-                                <li><a href="{% url 'mypage' %}">마이페이지</a></li>
-                                <li><a href="{% url 'host_booking_list' %}">등록한 공간</a></li>
-                                <li><a href="{% url 'booker_booking_list' %}">예약한 공간</a></li>
-                                <li><a href="{% url 'logout' %}">로그아웃</a></li>
-                                {% else %}
-                                <li><a href="{% url 'signup' %}">회원가입</a></li>
-                                <li><a href="{% url 'login' %}">로그인</a></li>
-                                {% endif %}
-                            
-                            </ul>
-                        <!-- </div> -->
+                <div id="h1_logo" style="margin-right: 10px;">
+                    <a href="{% url 'main' %}">
+                        <img src="{% static 'images/WithSpaceLogo.jpg' %}" alt="이미지 로드 안됨" width="100px"> </a>
+                </div>
+                <div id="h1_logo">
+                    <a href="{% url 'main' %}">
+                        withSpace
+                    </a>
+                </div>
+                {% if user.is_authenticated %}
+                <div id="h_button1"><a href="{% url 'search' %}">공간검색</a></div>
+                <span id="h_button2"><a href="{% url 'register' %}">공간등록</a></span>
+                {% else %}
+                <div id="h_button1"><a href="{% url 'search' %}">공간검색</a></div>
+                <span id="h_button2"><a href="{% url 'main' %}">공간 둘러보기</a></span>
+                {% endif %}
+
+                <div class="h_col2_bf">
+                    <!-- <div class="btn-group"> -->
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">&nbsp;&nbsp;</button>
+                    <ul class="dropdown-menu" role="menu">
                         {% if user.is_authenticated %}
-                        <div id="name"><p>{{request.user}} 님</p></div>
-                        {% else %} 
-                        <div id="name"><p> 방문자님 </p></div>
+                        <li><a href="{% url 'mypage' %}">마이페이지</a></li>
+                        <li><a href="{% url 'host_booking_list' %}">등록한 공간</a></li>
+                        <li><a href="{% url 'booker_booking_list' %}">예약한 공간</a></li>
+                        <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                        {% else %}
+                        <li><a href="{% url 'signup' %}">회원가입</a></li>
+                        <li><a href="{% url 'login' %}">로그인</a></li>
                         {% endif %}
+
+                    </ul>
+                    <!-- </div> -->
+                    {% if user.is_authenticated %}
+                    <div id="name">
+                        <p>{{request.user}} 님</p>
                     </div>
+                    {% else %}
+                    <div id="name">
+                        <p> 방문자님 </p>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
     {% block content %}
 
