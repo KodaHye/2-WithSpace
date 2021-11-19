@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} booking page {% endblock %}
-{% block link %} {% static 'css/style.css' %}{% endblock %}
+<!-- {% block link %} {% static 'css/style.css' %}{% endblock %} -->
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <style>
     .input_container {
         padding-bottom: 20px;
@@ -56,7 +57,7 @@
 
 
             <div class="input_container">
-                <div id=title><b>예약인원</b></div>
+                <div id="title"><b>예약인원</b></div>
                 <input class="input_text" type="number" name="num_of_people" style="width: 203px;"
                     placeholder="총 인원 (명)">
                 <input class="input_text" type="number" name="num_of_vaccinated" style="width: 203px;"
@@ -66,7 +67,7 @@
 
             <div class="input_container">
                 <div>
-                    <div id=title><label for="booking_date">예약 날짜 설정 </label></div>
+                    <div id="title"><label for="booking_date">예약 날짜 설정 </label></div>
                     <input class="input_text" type="date" name="booking_date" value="2021-11-15" id="start"
                         min="2021-11-15" max="2022-12-31">
                 </div>
