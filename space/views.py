@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-
+from django.db.models import Q
 
 """
 Main Page
@@ -48,7 +48,6 @@ def register(request):
 # 공간 검색 페이지
 def search_space(request):
     return render(request, 'search_space.html')
-
 
 # 공간 검색 결과 페이지 (검색 필터링 구현 후 리다이렉팅으로 변경)
 def search_result(request):
