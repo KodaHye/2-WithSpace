@@ -25,12 +25,6 @@ media
 # <django-project-name>/staticfiles/
 
 # static files
-static
-staticfiles
-space/static
-account/static
-space/staticfiles
-account/staticfiles
 
 ### Django.Python Stack ###
 # Byte-compiled / optimized / DLL files
