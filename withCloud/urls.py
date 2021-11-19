@@ -6,7 +6,7 @@ from space import views as space
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', space.main, name='main'),
+    path('', space.firstpage, name='firstpage'),
     path('account/', include('account.urls')),
     path('space/', include('space.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

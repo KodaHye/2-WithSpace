@@ -3,6 +3,13 @@ from .models import *
 from django.db.models import Q
 
 """
+First Page
+"""
+
+def firstpage(request):
+    return render(request, 'firstpage.html')
+
+"""
 Main Page
 """
 def main(request):
