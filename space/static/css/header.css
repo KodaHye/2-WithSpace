@@ -22,24 +22,70 @@
     margin-right: 30px;
     border-radius: 20px;
 }
+
 #name {
     position: relative;
     top: 12px;
     font-size: 20px;
     font-family: HY견고딕;
 }
-
-
+.h_col2_bf {
+    position: relative;
+    right: 500px;
+    display: flex;
+    
+    color: #fff;
+    font-size: larger;
+}
+.h_col2_bf a{
+    color: #fff;
+    font-size: larger;
+    text-decoration-line: none;
+}
+.h_col2_bf a:hover{
+    
+    color:#fff; 
+}
+.h_col2_bf button {
+    bottom: 15px;  
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border-radius: 20px;
+}
+#name {
+    position: relative;
+    top: 12px;
+    font-size: 20px;
+    font-family: HY견고딕;
+} 
 @font-face {
     font-family: 'SEBANG_Gothic_Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Regular.woff%27) format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
+/* 로고제목글꼴 */
 @font-face {
     font-family: 'KOTRAHOPE';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2%27) format('woff2');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+}
+#h1_logo {
+    font-size: 40px;
+    float: left;
+    position: relative;
+    top: 30px;
+    
+    /* 이거 추가 */
+    font-family: 'KOTRAHOPE';
+
+    /* 이거 없애고 */
+    /* font-weight: 700; */ 
+}
+#h1_logo a{
+    color: #000000;
+    text-decoration-line: none;
 }
