@@ -2,22 +2,6 @@
 {% load static %}
 {% block title %} 검색 결과 페이지 {% endblock %}
 {% block link %} {% static 'css/table.css' %}{% endblock %}
-{% block script %}
-<script type='text/javascript'>
-$(document).ready(function(){
-    $(".page-link").on('click', function() {
-        $("#page").val($(this).data("page"));
-        $("#searchForm").submit();
-    });
-
-    $("#btn_search").on('click', function() {
-        $("#kw").val($(".kw").val());
-        // $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
-        $("#searchForm").submit();
-    });
-});
-</script>
-{% endblock %}
 
 {% block content %}
 
@@ -30,6 +14,11 @@ $(document).ready(function(){
     .button {
         width: 500px; display: inline;
     }
+    .search_div{
+    height: 40px;
+    width: 1000px;
+    border:1px solid #bbb7b7;
+    }
 </style>
 
 <div class="container">
@@ -37,8 +26,11 @@ $(document).ready(function(){
         <div style="padding-bottom: 20px;">
             <span id = "title" style="font-size: 35px; font-weight: bolder;">당신에게 필요한 공간을 검색해보세요.</span> <br> 
         </div>
-        <div style = "width: 1000px;">
-            <input type="text" name = "search_word" label="Search Word" placeholder="장소를 검색해주세요. (장소, 조건)" style="width: 1000px; height: 30pt;">
+        <div>
+            <form method='post' action="{% url 'search_space' %}">
+                {% csrf_token %}
+                <input class = "search_div" type="text" name = "search_button" placeholder="장소를 검색해보세요. (장소, 조건)">
+                </form>
         </div>
     </div>
     
