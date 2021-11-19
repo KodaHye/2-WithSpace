@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td><b>공간명</b></td>
-                <td>{{ b.space_id }}</td>
+                <td><a href="{% url 'space' b.space_id.id %}">{{ b.space_id }}</a></td>
             </tr>
             <tr>
                 <td><b>예약 총 인원</b></td>
