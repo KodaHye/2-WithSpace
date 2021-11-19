@@ -3,17 +3,17 @@
 {% block title %} 공간 예약 페이지 {% endblock %}
 
 {% block content %}
-<form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
+<form method="post" action="{% url 'register' %}" enctype='multipart/form-data'>
     {% csrf_token %}
 
     <div>
-        <label for = "space_name"> 공간 이름:  </label> 
-        <input type= "text" name = "space_name" placeholder="공간 이름">
+        <label for="space_name"> 공간 이름: </label>
+        <input type="text" name="space_name" placeholder="공간 이름">
     </div>
 
     <div>
-        <label for = "space_type"> 공간 유형:</label>
-        <select name = "space_type">
+        <label for="space_type"> 공간 유형:</label>
+        <select name="space_type">
             <option value="STUDY"> 스터디룸 </option>
             <option value="STUDIO"> 촬영 스튜디오 </option>
             <option value="CAFE"> 카페 단체석 </option>
@@ -24,46 +24,93 @@
     </div>
 
     <div>
-        <label for = "contact_number"> 전화 번호 : </label>
-        <input type = "text" name = "contact_number">
+        <label for="contact_number"> 전화 번호 : </label>
+        <input type="text" name="contact_number">
     </div>
 
     <div>
-        <label for = "price"> 시간 당 가격 : </label>
-        <input type = "number" name = "price">
+        <label for="price"> 시간 당 가격 : </label>
+        <input type="number" name="price">
     </div>
 
     <div>
-        <label for = "space_brief_detail"> 공간 정보 : </label>
-        <input type = "text" name = "space_brief_detail">
+        <label for="space_brief_detail"> 공간 정보 : </label>
+        <input type="text" name="space_brief_detail">
     </div>
 
     <div>
-        <label for = "space_detail"> 공간 상세 정보 : </label>
-        <textarea name = "space_detail" cols="80" rows="10"></textarea>
+        <label for="space_detail"> 공간 상세 정보 : </label>
+        <textarea name="space_detail" cols="80" rows="10"></textarea>
     </div>
 
     <div>
-        <label for = "tags"> 태그 달기 </label>
-        <input type = "text" name = "tags">
+        <label for="tags"> 태그 달기 </label>
+        <input type="text" name="tags">
     </div>
     <div>
-        <label for = "address">주소 : </label> 
-        <input type = "text" name = "address">
-    </div>
+        <label for="address">주소 : </label>
+        <input type="text" id="address" name="address">
+        <button type="button" id="btn">지도 미리 확인하기</button>
 
-    <div>
-        <label for = "url"> 웹사이트 url : </label>
-        <input type = "url" name = "url" placeholder= "https://example.com" size="100">
+        <div id="map" style="width:100%; height:350px;"></div>
     </div>
 
     <div>
-        <label for = "space_image"> 대표 이미지 업로드 : </label>
-        <input type = "file" name = "space_image" accept="image/png, image/jpeg">
+        <label for="url"> 웹사이트 url : </label>
+        <input type="url" name="url" placeholder="https://example.com" size="100">
     </div>
 
-    <button type = "submit"> 등록 완료 </button>
+    <div>
+        <label for="space_image"> 대표 이미지 업로드 : </label>
+        <input type="file" name="space_image" accept="image/png, image/jpeg">
+    </div>
 
+    <button type="submit"> 등록 완료 </button>
+
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee557e514b7deb78145a876b3049a7e1&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        // 지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+        var btns = document.querySelector('#btn');
+        btns.addEventListener('click', e => {
+
+            var keyword = document.getElementById('address').value;
+            geocoder.addressSearch(keyword, function (result, status) {
+
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">테스트</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                }
+            });
+
+        })
+    </script>
 </form>
 
 {% endblock %}
