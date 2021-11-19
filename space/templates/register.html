@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block link %} {% static 'css/style.css' %}{% endblock %}
 {% block title %} 공간 예약 페이지 {% endblock %}
 {% block content %}
 
@@ -28,6 +29,7 @@
     .register_text {
         border-radius: 8px;
         border: 1px solid #9D9D9D;
+    }
 </style>
 <form method = "post" action = "{% url 'register' %}" enctype='multipart/form-data'>
     {% csrf_token %}
@@ -100,6 +102,14 @@
             </div>
         </div>
 
+        <div class = "input_container">
+            <div>
+                <div id = "title">
+                    <label for = "address">주소</label> 
+                </div>
+                <input class = "input_text" type = "text" name = "address" style="width: 410px;">
+            </div>
+        </div>
 
         
         <div class ="input_container">
