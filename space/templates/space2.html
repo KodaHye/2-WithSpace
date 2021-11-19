@@ -7,426 +7,487 @@
 {% block content %}
 {{ form.media }}
 
-            <style>
-                #section_box {
-                    width: 1400px;
-                    height: 3000px;
-                    margin: 0 auto;
-                }
-                #makecenter {
-                    padding-top: 200px;
-                    padding-bottom: 20px;
-                    text-align: center;
-                    float: left;
-                }
-                #registered_space_name{
-                    position: relative;
-                    float: left;
-                    font-size: 35px;
-                    bottom: 70px;
-                    margin: 0px 0px 30px 0px;
-                    
-                }
-                #tag1{
-                    position: relative;
-                    text-align: left;
-                    height: 30px;
-                    top: 40px;
-                    right: 200px;
-                    font-size:20px;
-                }
-                #operator_and_liked {
-                    position: relative;
-                    float: right;
-                    right: 125px;
-                    bottom: 20px;
-                    font-size: 20px;
-                    width: 100px;
-                
-                    
-                }
-                #operator_name {
-                    font-family: 휴면명조;
-                    margin: 0px 0px 5px 0px;
-                }
-                #liked_num {
-                    position: relative;
-                    display:flex;
-                    left: 17px;
-                    font-family: 휴면명조;
-                }
-                #liked_num #liked {margin: 0px 10px 0px 0px;}
-                #liked_num #num {}
-                #space_img img{
-                    float: left;
-                    height: 600px;
-                    width: 1000px;
-                    margin: 10px 0px 60px 0px;
-                    
-                }
+<style>
+    #section_box {
+        width: 1400px;
+        height: 3000px;
+        margin: 0 auto;
+    }
 
-                /* 제목들 */
-                .small_titles0 {
-                    position:relative;
-                    top: 25px;
-                    font-size: 30px;
-                    margin: 20px 0px 20px 0px;
-                    width: 150px;
-                    text-align: left;
-                    clear:left;
-                }
-                .small_titles {
-                    position:relative;
-                    font-size: 30px;
-                    margin: 20px 0px 20px 0px;
-                    float: left;
+    #makecenter {
+        padding-top: 200px;
+        padding-bottom: 20px;
+        text-align: center;
+        float: left;
+    }
 
-                }
-                #small_titles1 {
-                    float: left;
-                    position:relative;
-                    font-size: 30px;
-                    margin: 20px 0px 20px 0px;
-                }
-                #small_titles2 {
-                   clear:left;
-                   position: relative;
-                   top: 100px;
-                   width: 200px;
-                   text-align: left;
-                }
-                #small_titles3 {
-                   clear:left;
-                   position: relative;
-                   top: 200px;
-                   width: 470px;
-                   text-align: left;
-                }
-                #small_titles4 {
-                   clear:left;
-                   position: relative;
-                   top: 350px;
-                   width: 470px;
-                   text-align: left;
-                }
+    #registered_space_name {
+        position: relative;
+        float: left;
+        font-size: 35px;
+        bottom: 70px;
+        margin: 0px 0px 30px 0px;
 
-                /* 소개 */
-                #short_intro {
-                    position: relative;
-                    bottom: 21px; 
-                    left: 130px;
-                    font-family: 휴면명조;
-                    font-size: 20px;
-                    width: 700px;
-                    text-align: left;
-                    
-                }
-                #show_intro_space {
-                    clear: left;
-                    text-align: left;
-                    font-size: 20px;
-                    height: 200px;
-                    width: 550px;
-                    font-family: 휴면명조;
-                    margin: 30px 150px 0px 0px;
-                }
-                #show_maximum_people{
-                    clear:left;
-                    text-align: left;
-                    font-size: 20px;
-                    font-family: 휴면명조;
-                    margin: 30px 0px 30px 0px;
-                }
-                #price_box {
-                    float: left;
-                    position: relative;
-                    width: 200px;
-                    top: 150px;
-                    right: 240px;
-                    
-                }
-                #show_price{
-                    clear: left;
-                    text-align: left;
-                    font-size: 20px;
-                    width: 500px;
-                    font-family: 휴면명조;
-                    margin: 30px 0px 0px 0px;
-                }
-                #register_button button{
-                    border-radius: 10px;
-                    background: #CAD9EC;
-                    float: left;
-                    width:150px;
-                    height: 50px;
-                    position: relative;
-                    top: 210px;
-                    right: 240px; 
-                    
-                }
-                #location {
-                    position: relative;
-                    clear: left;
-                    display: flex;
-                    top: 130px;
-                    margin: 0px 0px 20px 0px;
-                }
-                #location1 {
-                    border: 1px solid; 
-                    margin: 0px 30px 0px 0px;
-                    width: 45%;
-                    height: 200px;
-                }
-                #location2 { 
-                    border: 1px solid; 
-                    width: 30%;
-                    padding: 25px;
-                    font-size: 20px;
-                    text-align: left;
-                }
+    }
 
-                #review_and_QnA {
-                    display: flex;
-                }
-                #review {
-                    position: relative;
-                    
-                }
-                #review_textarea{
-                    float: left;
-                    
-                    /* resize: none; */
-                }
-                
-                /* review 입력창 자체에 적용됨 */
-                #review_textarea textarea{
-                    position: relative;
-                    height: 150px;
-                    top: 230px;
-                    width: 400px;
-                    resize: none;
-                    border-radius: 10px;
-                    padding: 20px;
-                    font-size: 20px;
-                    
-                }
-                /* #QnA {
+    #tag1 {
+        position: relative;
+        text-align: left;
+        height: 30px;
+        top: 40px;
+        right: 200px;
+        font-size: 20px;
+    }
+
+    #operator_and_liked {
+        position: relative;
+        float: right;
+        right: 125px;
+        bottom: 20px;
+        font-size: 20px;
+        width: 100px;
+
+
+    }
+
+    #operator_name {
+        font-family: 휴면명조;
+        margin: 0px 0px 5px 0px;
+    }
+
+    #liked_num {
+        position: relative;
+        display: flex;
+        left: 17px;
+        font-family: 휴면명조;
+    }
+
+    #liked_num #liked {
+        margin: 0px 10px 0px 0px;
+    }
+
+    #liked_num #num {}
+
+    #space_img img {
+        float: left;
+        height: 600px;
+        width: 1000px;
+        margin: 10px 0px 60px 0px;
+
+    }
+
+    /* 제목들 */
+    .small_titles0 {
+        position: relative;
+        top: 25px;
+        font-size: 30px;
+        margin: 20px 0px 20px 0px;
+        width: 150px;
+        text-align: left;
+        clear: left;
+    }
+
+    .small_titles {
+        position: relative;
+        font-size: 30px;
+        margin: 20px 0px 20px 0px;
+        float: left;
+
+    }
+
+    #small_titles1 {
+        float: left;
+        position: relative;
+        font-size: 30px;
+        margin: 20px 0px 20px 0px;
+    }
+
+    #small_titles2 {
+        clear: left;
+        position: relative;
+        top: 100px;
+        width: 200px;
+        text-align: left;
+    }
+
+    #small_titles3 {
+        clear: left;
+        position: relative;
+        top: 200px;
+        width: 470px;
+        text-align: left;
+    }
+
+    #small_titles4 {
+        clear: left;
+        position: relative;
+        top: 350px;
+        width: 470px;
+        text-align: left;
+    }
+
+    /* 소개 */
+    #short_intro {
+        position: relative;
+        bottom: 21px;
+        left: 130px;
+        font-family: 휴면명조;
+        font-size: 20px;
+        width: 700px;
+        text-align: left;
+
+    }
+
+    #show_intro_space {
+        clear: left;
+        text-align: left;
+        font-size: 20px;
+        height: 200px;
+        width: 550px;
+        font-family: 휴면명조;
+        margin: 30px 150px 0px 0px;
+    }
+
+    #show_maximum_people {
+        clear: left;
+        text-align: left;
+        font-size: 20px;
+        font-family: 휴면명조;
+        margin: 30px 0px 30px 0px;
+    }
+
+    #price_box {
+        float: left;
+        position: relative;
+        width: 200px;
+        top: 150px;
+        right: 240px;
+
+    }
+
+    #show_price {
+        clear: left;
+        text-align: left;
+        font-size: 20px;
+        width: 500px;
+        font-family: 휴면명조;
+        margin: 30px 0px 0px 0px;
+    }
+
+    #register_button button {
+        border-radius: 10px;
+        background: #CAD9EC;
+        float: left;
+        width: 150px;
+        height: 50px;
+        position: relative;
+        top: 210px;
+        right: 240px;
+
+    }
+
+    #location {
+        position: relative;
+        clear: left;
+        display: flex;
+        top: 130px;
+        margin: 0px 0px 20px 0px;
+    }
+
+    #location1 {
+        border: 1px solid;
+        margin: 0px 30px 0px 0px;
+        width: 45%;
+        height: 200px;
+    }
+
+    #location2 {
+        border: 1px solid;
+        width: 30%;
+        padding: 25px;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    #review_and_QnA {
+        display: flex;
+    }
+
+    #review {
+        position: relative;
+
+    }
+
+    #review_textarea {
+        float: left;
+
+        /* resize: none; */
+    }
+
+    /* review 입력창 자체에 적용됨 */
+    #review_textarea textarea {
+        position: relative;
+        height: 150px;
+        top: 230px;
+        width: 400px;
+        resize: none;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: 20px;
+
+    }
+
+    /* #QnA {
                 } */
-                #QnA_textarea {
-                    float: left;
-                    
-                    /* resize: none; */
-                } 
-                #QnA_textarea input{
-                    border:0.5px solid grey;
-                    border-radius:10px;
-                    position: relative;
-                    top:70px;
-                    right: 400px;
-                }
+    #QnA_textarea {
+        float: left;
 
-                /* QnA 입력창 자체에 적용됨 */
-                #QnA_textarea textarea {
-                    position: relative;
-                    height: 150px;
-                    width: 400px;
-                    top: 230px;
-                    resize: none;
-                    border-radius: 10px;
-                    padding: 20px;  
-                    font-size: 20px;
-                }   
-                #review button {
-                    float: left; 
-                    position: relative;
-                    top: 240px;
-                    border-radius: 10px;
-                    background: #CAD9EC;
-                    width: 150px;
-                    height: 40px;
-                }
-                #QnA button {
-                    float: left;
-                    position: relative;
-                    top: 260px;
-                    border-radius: 10px;
-                    background: #CAD9EC;
-                    width: 150px;
-                    height: 40px;
-                }
-                #review_answer {
-                    border: 1px solid;
-                    border:none;
-                    position: relative;
-                    float: left;
-                    text-align: left;
-                    width: 400px;
-                    height: 500px;
-                    font-size: 15px;
-                    border-radius: 10px;
-                    padding: 20px; 
-                }
-                #review_answer #review_content{
-                    border:1px solid;
-                    height: 100px;
-                    border-radius: 10px;
-                    position:relative;
-                    right: 17px;
-                }
-                #QnA_answer {
-                    border: none;
-                    position: relative;
-                    float: left;
-                    text-align: left;
-                    width: 400px;
-                    height: 150px;
-                    font-size: 15px;
-                    border-radius: 10px;
-                    padding: 20px;
-                    margin-bottom: 100px;
-                }
-                #QnA_answer button:not(#QnA button){
-                    position:relative;
-                    bottom: 250px;
-                    
-                
-                }
-                #answer_submit_button{
-                    position:relative;
-                    bottom: 230px;
-                }
-                #QnA_answer textarea{
-                    border: 1px solid;
-                }
-                    
-                    
-                
-                #review_answer textarea {
-                    overflow: scroll; 
-                    overflow-x: hidden;
-                    position: relative;
-                    float: left;
-                    text-align: left;
-                    width: 300px;
-                    height: 70px;
-                    font-size: 15px;
-                    border-radius: 10px;
-                    border: none;
-                    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
-                    scrollbar-width: none; /* Firefox */
-                }  
-                #review_answer textarea::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari, Opera*/
-                }
+        /* resize: none; */
+    }
 
-                #QnA_answer textarea {
-                    position: relative;
-                    float: left;
-                    text-align: left;
-                    width: 300px;
-                    height: 100px;
-                    font-size: 15px;
-                    border-radius: 10px;
-                    
-                    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
-                    scrollbar-width: none; /* Firefox */
-                }  
-                #QnA_answer textarea::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari, Opera*/
-                }
+    #QnA_textarea input {
+        border: 0.5px solid grey;
+        border-radius: 10px;
+        position: relative;
+        top: 70px;
+        right: 400px;
+    }
+
+    /* QnA 입력창 자체에 적용됨 */
+    #QnA_textarea textarea {
+        position: relative;
+        height: 150px;
+        width: 400px;
+        top: 230px;
+        resize: none;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    #review button {
+        float: left;
+        position: relative;
+        top: 240px;
+        border-radius: 10px;
+        background: #CAD9EC;
+        width: 150px;
+        height: 40px;
+    }
+
+    #QnA button {
+        float: left;
+        position: relative;
+        top: 260px;
+        border-radius: 10px;
+        background: #CAD9EC;
+        width: 150px;
+        height: 40px;
+    }
+
+    #review_answer {
+        border: 1px solid;
+        border: none;
+        position: relative;
+        float: left;
+        text-align: left;
+        width: 400px;
+        height: 500px;
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    #review_answer #review_content {
+        border: 1px solid;
+        height: 100px;
+        border-radius: 10px;
+        position: relative;
+        right: 17px;
+    }
+
+    #QnA_answer {
+        border: none;
+        position: relative;
+        float: left;
+        text-align: left;
+        width: 400px;
+        height: 150px;
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 100px;
+    }
+
+    #QnA_answer button:not(#QnA button) {
+        position: relative;
+        bottom: 250px;
 
 
-                #review_scroll{
-                    overflow: scroll; 
-                    overflow-x: hidden;
-                    width: 440px;
-                    height: 500px;
-                    float: left;
-                    position:relative;
-                    top: 385px;
-                    -ms-overflow-style: none; /* IE and Edge */
-                    scrollbar-width: none; /* Firefox */
-                }  
-                #review_scroll::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari, Opera*/
-                }
-                
-                #QnA_scroll {
-                    overflow: scroll; 
-                    overflow-x: hidden;
-                    width: 440px;
-                    height: 500px;
-                    float: left;
-                    position:relative;
-                    top: 385px;
-                    -ms-overflow-style: none; /* IE and Edge */
-                    scrollbar-width: none; /* Firefox */
-                }  
-                #QnA_scroll::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari, Opera*/
-                }
-                #review_star_tag {
-                    position: relative;
-                    top: 50px;
-                    right: 100px;
-                }
-            </style>
-            
-        </head>
+    }
 
-        <body>
-            <div id="wrap">
-                <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
-                <header>
-                    
+    #answer_submit_button {
+        position: relative;
+        bottom: 230px;
+    }
 
-                <div id="section_box">
-                    <div id="makecenter">
-                        <!--등록한 공간 이름이 뜨게 해야함-->
-                        <div id="registered_space_name">{{space.space_name}}
-                            {% if space.space_type == "STUDY" %} (STUDY ROOM)
-                            {% else %} ({{space.space_type}})
-                            {% endif %}
+    #QnA_answer textarea {
+        border: 1px solid;
+    }
+
+
+
+    #review_answer textarea {
+        overflow: scroll;
+        overflow-x: hidden;
+        position: relative;
+        float: left;
+        text-align: left;
+        width: 300px;
+        height: 70px;
+        font-size: 15px;
+        border-radius: 10px;
+        border: none;
+        padding: 20px;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #review_answer textarea::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera*/
+    }
+
+    #QnA_answer textarea {
+        position: relative;
+        float: left;
+        text-align: left;
+        width: 300px;
+        height: 100px;
+        font-size: 15px;
+        border-radius: 10px;
+
+        padding: 20px;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #QnA_answer textarea::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera*/
+    }
+
+
+    #review_scroll {
+        overflow: scroll;
+        overflow-x: hidden;
+        width: 440px;
+        height: 500px;
+        float: left;
+        position: relative;
+        top: 385px;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #review_scroll::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera*/
+    }
+
+    #QnA_scroll {
+        overflow: scroll;
+        overflow-x: hidden;
+        width: 440px;
+        height: 500px;
+        float: left;
+        position: relative;
+        top: 385px;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #QnA_scroll::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera*/
+    }
+
+    #review_star_tag {
+        position: relative;
+        top: 50px;
+        right: 100px;
+    }
+</style>
+
+
+<body>
+    <div id="wrap">
+        <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
+        <header>
+
+            <div id="section_box">
+                <div id="makecenter">
+                    <!--등록한 공간 이름이 뜨게 해야함-->
+                    <div id="registered_space_name">{{space.space_name}}
+                        {% if space.space_type == "STUDY" %} (STUDY ROOM)
+                        {% else %} ({{space.space_type}})
+                        {% endif %}
+                    </div>
+
+                    <div id="tag1">
+                        {% for tag in space.tags.all %}
+                        #{{ tag.name }}
+                        {% endfor %}
+                    </div>
+
+                    <div id="operator_and_liked">
+                        <div id="operator_name">{{space.host_id}}</div>
+                        <div id="liked_num">
+                            <div id="liked">♡</div>
+                            <div id="num">100</div>
                         </div>
+                    </div>
 
-                        <div id="tag1">
-                            {% for tag in space.tags.all %}
-                            #{{ tag.name }}
-                            {% endfor %}
-                        </div>
+                    <div id="space_img">
+                        {% if space.space_image %}
+                        <img src="{{space.space_image.url}}" width="150">
+                        {% endif %}
+                    </div>
 
-                        <div id="operator_and_liked">
-                            <div id="operator_name">{{space.host_id}}</div>
-                            <div id="liked_num">
-                                <div id="liked">♡</div>
-                                <div id="num">100</div>
-                            </div>
-                        </div>
 
-                        <div id="space_img">
-                            {% if space.space_image %}
-                            <img src="{{space.space_image.url}}" width="150">
-                            {% endif %}
-                        </div>
-                        
-                        
-                        <div class="small_titles0"><h3>{{space.space_name}}   </h3></div>
-                        <div id="short_intro">{{space.space_brief_detail}}</div>
-                        
+                    <div class="small_titles0">
+                        <h3>{{space.space_name}} </h3>
+                    </div>
+                    <div id="short_intro">{{space.space_brief_detail}}</div>
 
-                        <div style="position: relative; top:20px;">
+
+                    <div style="position: relative; top:20px;">
                         <div style="float: left;">
-                            <div class="small_titles"><h3>{{space.space_name}} 소개</h3></div>
+                            <div class="small_titles">
+                                <h3>{{space.space_name}} 소개</h3>
+                            </div>
                             <div id="show_intro_space"> {{space.space_detail}} </div>
                         </div>
 
                         <div style="float: left; margin-right: 100px;">
-                            <div class="small_titles"><h3>최대수용인원</h3></div>
+                            <div class="small_titles">
+                                <h3>최대수용인원</h3>
+                            </div>
                             <div id="show_maximum_people">8명</div>
                         </div>
 
                         <div id="price_box">
-                            <div id="small_titles1"><h3>금액</h3></div>
+                            <div id="small_titles1">
+                                <h3>금액</h3>
+                            </div>
                             <div id="show_price">{{space.price}} / 시간 (원)</div>
                         </div>
 
@@ -435,44 +496,51 @@
                                 <button>예약하기</button>
                             </a>
                         </div>
-                        
-                        <div id="small_titles2"><h3> {{ space.address }}</h3></div>
+
+                        <div id="small_titles2">
+                            <h3> {{ space.address }}</h3>
+                        </div>
                         <div id="location">
                             <div id="location1">
-                                <div id="map" style="width:500px"></div>
+                                <div id="map" style="width:500px; height:200px;"></div>
                             </div>
                             <div id="location2"> </div>
                         </div>
-                        
+
                         <!-- 후기와 QnA -->
                         <div id="review_and_QnA">
                             <div id="review">
-                                <div id="small_titles3"><h3>Review 작성 </h3></div>
-                                
-                                    <div id="review_textarea">
+                                <div id="small_titles3">
+                                    <h3>Review 작성 </h3>
+                                </div>
+
+                                <div id="review_textarea">
                                     {% if user.is_authenticated %}
                                     <form action="{% url 'create_review' space.id %}" method="POST">
                                         {% csrf_token %}
-                
-                                
-                                    <textarea name="review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
-                                    <div id="review_star_tag">
-                                        <label for="review_star"> 공간 별점:</label>
-                                        <select name="review_star">
-                                            <option value=1>⭐</option>
-                                            <option value=2>⭐⭐</option>
-                                            <option value=3>⭐⭐⭐</option>
-                                            <option value=4>⭐⭐⭐⭐</option>
-                                            <option value=5>⭐⭐⭐⭐⭐</option>
-                                        </select>
-                                    </div>
+
+
+                                        <textarea name="review_content" cols="70" rows="10"
+                                            placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
+                                        <div id="review_star_tag">
+                                            <label for="review_star"> 공간 별점:</label>
+                                            <select name="review_star">
+                                                <option value=1>⭐</option>
+                                                <option value=2>⭐⭐</option>
+                                                <option value=3>⭐⭐⭐</option>
+                                                <option value=4>⭐⭐⭐⭐</option>
+                                                <option value=5>⭐⭐⭐⭐⭐</option>
+                                            </select>
+                                        </div>
                                 </div>
                                 <div>
-                                    <button type ="submit">Review 등록</button>
+                                    <button type="submit">Review 등록</button>
                                 </div>
-                            </form>
-                            {% endif %}
-                                <div id="small_titles4"><h3>Review 보기</h3></div>
+                                </form>
+                                {% endif %}
+                                <div id="small_titles4">
+                                    <h3>Review 보기</h3>
+                                </div>
                                 <div id="review_scroll">
                                     <div id="review_answer">
                                         {% for review in space.review_set.all %}
@@ -502,111 +570,109 @@
                             </div>
 
                             <div id="QnA">
-                                <div id="small_titles3"><h3>QnA</h3></div>
+                                <div id="small_titles3">
+                                    <h3>QnA</h3>
+                                </div>
                                 <form action="{% url 'create_question' space.id %}" method="POST">
                                     {% csrf_token %}
-                                   
+
                                     <div id="QnA_textarea">
-                                        
-                                    <textarea name="question_content" placeholder="질문을 남겨주세요"></textarea>
-                                    <input type="text" name="writer" placeholder="작성자 이름"> <br>
+
+                                        <textarea name="question_content" placeholder="질문을 남겨주세요"></textarea>
+                                        <input type="text" name="writer" placeholder="작성자 이름"> <br>
                                     </div>
-                                <div>
-                                    <button>QnA 남기기</button>
+                                    <div>
+                                        <button>QnA 남기기</button>
                                 </form>
-                                </div>
-
-                                
-                                <div id="small_titles4"><h3>QnA 답변</h3></div>
-                                <div id="QnA_scroll" >
-                                    
-                                        {% for question in space.question_set.all %}
-                                        {% if question.question_content %}
-                                        <div id="QnA_answer">
-
-                                        <b>{{ question.writer|linebreaksbr }} </b>님의 질문 : {{ question.question_content|linebreaksbr }} <br>
-                                        
-                                        {% endif %}
-
-                                        {% if request.user == space.host_id %}
-                                           
-                                            <form action="{% url 'create_answer' space.id question.id %}" method="POST">
-                                                {% csrf_token %}
-                                                
-                                                <textarea name="answer_content" cols="30" rows="5"
-                                                    placeholder="{{question.writer}}님의 질문에 대한 답을 달아주세요."></textarea>
-                                                <div id=answer_submit_button>
-                                                <button type="submit"> 답변 등록 </button>
-                                                </div>
-                                            </form>
-                                            {% endif %}
-                                        </div>
-                                        {% endfor %}
-                                    
-        
-                                    </div>
-             
-                                </div>
-
-                                
                             </div>
+
+
+                            <div id="small_titles4">
+                                <h3>QnA 답변</h3>
+                            </div>
+                            <div id="QnA_scroll">
+
+                                {% for question in space.question_set.all %}
+                                {% if question.question_content %}
+                                <div id="QnA_answer">
+
+                                    <b>{{ question.writer|linebreaksbr }} </b>님의 질문 : {{
+                                    question.question_content|linebreaksbr }} <br>
+
+                                    {% endif %}
+
+                                    {% if request.user == space.host_id %}
+
+                                    <form action="{% url 'create_answer' space.id question.id %}" method="POST">
+                                        {% csrf_token %}
+
+                                        <textarea name="answer_content" cols="30" rows="5"
+                                            placeholder="{{question.writer}}님의 질문에 대한 답을 달아주세요."></textarea>
+                                        <div id=answer_submit_button>
+                                            <button type="submit"> 답변 등록 </button>
+                                        </div>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+
                         </div>
-                    </div>
-                        
 
-
-
-                        
 
                     </div>
                 </div>
-
-
-
             </div>
-            <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44d76a02e55a2fd2a6e30e327947cfe2&libraries=services"></script>
-        <script>
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                mapOption = {
-                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                    level: 3 // 지도의 확대 레벨
-                };
-        
-            // 지도를 생성합니다
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-        
-            // 주소-좌표 변환 객체를 생성합니다
-            var geocoder = new kakao.maps.services.Geocoder();
-            var address = "{{space.address}}";
-            var mark = "{{space.space_name}}";
-        
-            window.addEventListener('load', e => {
-                geocoder.addressSearch(address, function (result, status) {
-        
-                    // 정상적으로 검색이 완료됐으면 
-                    if (status === kakao.maps.services.Status.OK) {
-        
-                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-        
-                        // 결과값으로 받은 위치를 마커로 표시합니다
-                        var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: coords
-                        });
-        
-                        // 인포윈도우로 장소에 대한 설명을 표시합니다
-                        var infowindow = new kakao.maps.InfoWindow({
-                            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + mark + '</div>'
-                        });
-                        infowindow.open(map, marker);
-        
-                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                        map.setCenter(coords);
-                    }
-                });
-        
-            })
-        </script>
-    
-{% endblock %}
+    </div>
+    </div>
+
+
+
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee557e514b7deb78145a876b3049a7e1&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        // 지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+        var address = "{{space.address}}";
+        var mark = "{{space.space_name}}";
+
+        window.addEventListener('load', e => {
+            geocoder.addressSearch(address, function (result, status) {
+
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">' + mark + '</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                }
+            });
+
+        })
+    </script>
+
+    {% endblock %}
