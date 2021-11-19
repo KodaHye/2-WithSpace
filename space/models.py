@@ -70,7 +70,7 @@ class Booking(models.Model):
         return h*60 + m
     
     def payment(self):
-        return self.h * space_id.price 
+        return int(self.time()/6) * self.space_id.price
     
 class Review(models.Model):
     # review_id
