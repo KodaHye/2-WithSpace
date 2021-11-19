@@ -1,3 +1,12 @@
+# main
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 메인 페이지 {% endblock %}
+{% block link %} {% static 'css/style.css' %}{% endblock %}
+{% block content %}
+
+<style>
 
 .image {
   position:relative;
@@ -41,3 +50,69 @@ a:visited {
     width: 1000px;
     border:1px solid #bbb7b7;
 }
+</style>
+
+<div class = "container">
+  <div>
+
+    
+  </div>
+       <div class ="image">
+         <img src="{% static 'img/img1.PNG' %}" style="width:1000px; height: 500px; opacity: 0.4;" alt="사진 로드 실패" />
+         <div class = "text" style="text-align: center; font-weight: bolder;">
+           <span>코로나 위드 사회 속에서<br>함께하는<br>With Space 입니다.</span>
+         </div>
+        </div>
+       <br><br>
+
+
+       <div class = "search_div">
+        <form method='post' action="{% url 'search_space' %}">
+          {% csrf_token %}
+          <input class = "main_input" type="text" name = "search_button" placeholder="공간을를 검색해보세요. (장소, 조건)">
+          <button id = "main_button">검색</button>
+          </form>
+      
+       </div>
+       <br> <br>
+       <div style="width: 1000px; padding-bottom: 10px;">
+           <span>내가 필요한 공간 찾기</span>
+           <span style="float: right;"><a href="">자세히보기</span>
+       </div>
+       
+
+         <div class="row">
+          <!-- 새로 추가한 부분 여기서부터 -->
+            {% for space in spaces %}
+            <div class="col-sm-6 col-md-6" style ="width: 515px;">  
+              <div class="thumbnail" >
+                 {% if space.space_image %}
+                 <img src="{{ space.space_image.url }}" alt="사진 로드 실패" />
+                 {% endif %}
+                 <div class="caption" >
+                   <h3>{{ space.space_name }}</h3>
+                   <div style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
+                     {% for tag in space.tags.all %}
+                    <span class ="tag_style" style="color: #9CC2F3">
+                        <b>#{{ tag.name }} &nbsp; </b>
+                    </span>
+                     {% endfor %} 
+                   </div>
+                   <div style="margin-bottom: 3px;"><span> <b>주소</b> {{space.address}}</span> </div>
+                   <div style="margin-bottom: 3px;"><b> 가격 </b> <span> {{space.price}}원 / 시간 </span></div>
+                   <a href="{% url 'space' space.id %}"><span class = "detail" style="color: #A9A9A9;">자세히 보기</span></a>
+                 </div>
+               </div>
+            </div>
+            
+            {% endfor %}
+
+
+         <!-- 여기까지 -->
+
+          
+      </div>
+</div>
+
+
+{% endblock %}
