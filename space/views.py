@@ -55,8 +55,10 @@ def search_space(request):
         space_type_q = Q(space_type__icontains = keyword)
         address_q = Q(address__icontains = keyword)
         detail_q = Q(space_detail__icontains = keyword)
+        brief_detail_q = Q(space_brief_detail__icontains = keyword)
+       
         
-        space = Space.objects.filter(address_q | space_name_q | space_type_q | detail_q)
+        space = Space.objects.filter(address_q | space_name_q | space_type_q | detail_q | brief_detail_q )
 
         return render(request, 'search_result.html', {'space':space, 'keyword':keyword})
     elif request.method == 'GET':
