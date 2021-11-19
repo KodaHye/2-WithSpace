@@ -50,7 +50,7 @@ def search_space(request):
     if request.method == 'POST':
         keyword = request.POST.get('search_button') # keyword를 입력받음
         
-        hashtag_q = Q(tags__icontains = keyword)
+        # hashtag_q = Q(tags__name__icontains = keyword)
         space_name_q = Q(space_name__icontains = keyword)
         space_type_q = Q(space_type__icontains = keyword)
         address_q = Q(address__icontains = keyword)
