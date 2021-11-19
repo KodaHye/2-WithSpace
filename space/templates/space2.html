@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="stylesheet" href="./css/main_header.css">
+        <link rel="stylesheet" href="./css/footer.css">
+        <!-- bootstrap, jquery 사용을 위한 코드 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+        <meta charset="UTF-8">
+
+            <style>
+                #section_box {
+                    width: 1400px;
+                    height: 3000px;
+                    margin: 0 auto;
+                }
+                #makecenter {
+                    padding-top: 200px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                    float: left;
+                }
+                #registered_space_name{
+                    position: relative;
+                    float: left;
+                    font-size: 35px;
+                    bottom: 70px;
+                    margin: 0px 0px 30px 0px;
+                    
+                }
+                #tag1{
+                    position: relative;
+                    text-align: left;
+                    height: 30px;
+                    top: 40px;
+                    right: 475px;
+                    font-size:20px;
+                }
+                #operator_and_liked {
+                    position: relative;
+                    float: right;
+                    right: 125px;
+                    bottom: 20px;
+                    font-size: 20px;
+                    width: 100px;
+                
+                    
+                }
+                #operator_name {
+                    font-family: 휴면명조;
+                    margin: 0px 0px 5px 0px;
+                }
+                #liked_num {
+                    position: relative;
+                    display:flex;
+                    left: 17px;
+                    font-family: 휴면명조;
+                }
+                #liked_num #liked {margin: 0px 10px 0px 0px;}
+                #liked_num #num {}
+                #space_img img{
+                    float: left;
+                    height: 600px;
+                    width: 1000px;
+                    margin: 10px 0px 60px 0px;
+                    
+                }
+
+                /* 제목들 */
+                .small_titles0 {
+                    position:relative;
+                    top: 25px;
+                    font-size: 30px;
+                    margin: 20px 0px 20px 0px;
+                    width: 150px;
+                    text-align: left;
+                    clear:left;
+                }
+                .small_titles {
+                    position:relative;
+                    font-size: 30px;
+                    margin: 20px 0px 20px 0px;
+                    float: left;
+
+                }
+                #small_titles1 {
+                    float: left;
+                    position:relative;
+                    font-size: 30px;
+                    margin: 20px 0px 20px 0px;
+                }
+                #small_titles2 {
+                   clear:left;
+                   position: relative;
+                   top: 100px;
+                   width: 50px;
+                }
+                #small_titles3 {
+                   clear:left;
+                   position: relative;
+                   top: 200px;
+                   width: 470px;
+                   text-align: left;
+                }
+                #small_titles4 {
+                   clear:left;
+                   position: relative;
+                   top: 350px;
+                   width: 470px;
+                   text-align: left;
+                }
+
+                /* 소개 */
+                #short_intro {
+                    position: relative;
+                    bottom: 21px; 
+                    left: 130px;
+                    font-family: 휴면명조;
+                    font-size: 20px;
+                    width: 700px;
+                    text-align: left;
+                    
+                }
+                #show_intro_space {
+                    clear: left;
+                    text-align: left;
+                    font-size: 20px;
+                    height: 200px;
+                    width: 550px;
+                    font-family: 휴면명조;
+                    margin: 30px 150px 0px 0px;
+                }
+                #show_maximum_people{
+                    clear:left;
+                    text-align: left;
+                    font-size: 20px;
+                    font-family: 휴면명조;
+                    margin: 30px 0px 30px 0px;
+                }
+                #price_box {
+                    float: left;
+                    position: relative;
+                    width: 200px;
+                    top: 150px;
+                    right: 240px;
+                    
+                }
+                #show_price{
+                    clear: left;
+                    text-align: left;
+                    font-size: 20px;
+                    width: 500px;
+                    font-family: 휴면명조;
+                    margin: 30px 0px 0px 0px;
+                }
+                #register_button button{
+                    border-radius: 10px;
+                    background: #CAD9EC;
+                    float: left;
+                    width:150px;
+                    height: 50px;
+                    position: relative;
+                    top: 210px;
+                    right: 240px; 
+                    
+                }
+                #location {
+                    position: relative;
+                    clear: left;
+                    display: flex;
+                    top: 130px;
+                    margin: 0px 0px 20px 0px;
+                }
+                #location1 {
+                    border: 1px solid; 
+                    margin: 0px 30px 0px 0px;
+                    width: 45%;
+                    height: 200px;
+                }
+                #location2 { 
+                    border: 1px solid; 
+                    width: 30%;
+                    padding: 25px;
+                    font-size: 20px;
+                    text-align: left;
+                }
+
+                #review_and_QnA {
+                    display: flex;
+                }
+                #review {
+                    position: relative;
+                    
+                }
+                #review_textarea{
+                    float: left;
+                    
+                    /* resize: none; */
+                }
+                
+                /* review 입력창 자체에 적용됨 */
+                #review_textarea textarea{
+                    position: relative;
+                    height: 150px;
+                    top: 230px;
+                    width: 400px;
+                    resize: none;
+                    border-radius: 10px;
+                    padding: 20px;
+                    font-size: 20px;
+                    
+                }
+                /* #QnA {
+
+                } */
+                #QnA_textarea {
+                    float: left;
+                    
+                    /* resize: none; */
+                } 
+
+                /* QnA 입력창 자체에 적용됨 */
+                #QnA_textarea textarea {
+                    position: relative;
+                    height: 150px;
+                    width: 400px;
+                    top: 230px;
+                    resize: none;
+                    border-radius: 10px;
+                    padding: 20px;  
+                    font-size: 20px;
+                }   
+                #review button {
+                    float: left; 
+                    position: relative;
+                    top: 260px;
+                    border-radius: 10px;
+                    background: #CAD9EC;
+                    width: 150px;
+                    height: 40px;
+                }
+                #QnA button {
+                    float: left;
+                    position: relative;
+                    top: 260px;
+                    border-radius: 10px;
+                    background: #CAD9EC;
+                    width: 150px;
+                    height: 40px;
+                }
+                #review_answer {
+                    border: 1px solid;
+                    border: none;
+                    position: relative;
+                    float: left;
+                    text-align: left;
+                    width: 400px;
+                    height: 500px;
+                    font-size: 15px;
+                    border-radius: 10px;
+                    padding: 20px; 
+                }
+                #QnA_answer {
+                    border: 1px solid;
+                    position: relative;
+                    float: left;
+                    text-align: left;
+                    width: 400px;
+                    height: 150px;
+                    font-size: 15px;
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+                    
+                    
+                
+                #review_answer textarea {
+                    overflow: scroll; 
+                    overflow-x: hidden;
+                    position: relative;
+                    float: left;
+                    text-align: left;
+                    width: 300px;
+                    height: 70px;
+                    font-size: 15px;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none; /* Firefox */
+                }  
+                #review_answer textarea::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, Opera*/
+                }
+
+                #QnA_answer textarea {
+                    position: relative;
+                    float: left;
+                    text-align: left;
+                    width: 300px;
+                    height: 50px;
+                    font-size: 15px;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none; /* Firefox */
+                }  
+                #QnA_answer textarea::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, Opera*/
+                }
+
+
+                #review_scroll{
+                    overflow: scroll; 
+                    overflow-x: hidden;
+                    width: 440px;
+                    height: 500px;
+                    float: left;
+                    position:relative;
+                    top: 385px;
+                    -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none; /* Firefox */
+                }  
+                #review_scroll::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, Opera*/
+                }
+                
+                #QnA_scroll {
+                    overflow: scroll; 
+                    overflow-x: hidden;
+                    width: 440px;
+                    height: 500px;
+                    float: left;
+                    position:relative;
+                    top: 385px;
+                    -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none; /* Firefox */
+                }  
+                #QnA_scroll::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, Opera*/
+                }
+            </style>
+            
+        </head>
+
+        <body>
+            <div id="wrap">
+                <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
+                <header>
+                    <div class="header1">
+                        <div class="header1_contents">
+                            <div id="h1_logo">
+                                <a href="">
+                                    withcloud
+                                </a>
+                            </div>
+
+                            <div id="h_button1"><a href="">공간검색</a></div>
+                            <span id="h_button2"><a href="">공간등록</a></span>
+                            
+                            <div class="h_col2_bf">
+                                <div id="login"><a href="">로그인</a></div>
+                                <div id="signup"><a href="">회원가입</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div id="section_box">
+                    <div id="makecenter">
+                        <!--등록한 공간 이름이 뜨게 해야함-->
+                        <div id="registered_space_name">한국기술교육대학교 카페 대즐</div>
+
+                        <div id="tag1">#아아 맛집 #천안 #한기대</div>
+
+                        <div id="operator_and_liked">
+                            <div id="operator_name">jw-cha</div>
+                            <div id="liked_num">
+                                <div id="liked">♡</div>
+                                <div id="num">100</div>
+                            </div>
+                        </div>
+
+                        <div id="space_img"><img src="img/dazzle.jpeg"></div>
+                        
+                        
+                        <div class="small_titles0"><h3>짧은 소개</h3></div>
+                        <div id="short_intro">하잉dffsddsdfsdf</div>
+                        
+
+                        <div style="position: relative; top:20px;">
+                        <div style="float: left;">
+                            <div class="small_titles"><h3>공간 소개</h3></div>
+                            <div id="show_intro_space">안녕하세요 한국기술교육대학교 내에 있는 대즐이라는 카페입니다.
+                                리모델링도 해서 공간도 넓어지고 청결하고 공부도 하기 좋은 장소입니다.
+                                자주 놀러오세요. 제 기준에서는 특히 아메리카노가 정말 맛있는 것 
+                                같습니다. 헤헤헤헤헤헤 곡물라떼도 맛있습니다. 어서들 오세요 </div>
+                        </div>
+
+                        <div style="float: left; margin-right: 100px;">
+                            <div class="small_titles"><h3>최대수용인원</h3></div>
+                            <div id="show_maximum_people">8명</div>
+                        </div>
+
+                        <div id="price_box">
+                            <div id="small_titles1"><h3>금액</h3></div>
+                            <div id="show_price">1,000,000원</div>
+                        </div>
+
+                        <div id="register_button">
+                            <button>예약하기</button>
+                        </div>
+                        
+                        <div id="small_titles2"><h3>위치</h3></div>
+                        <div id="location">
+                            <div id="location1"></div>
+                            <div id="location2">주소</div>
+                        </div>
+                        
+                        <!-- 후기와 QnA -->
+                        <div id="review_and_QnA">
+                            <div id="review">
+                                <div id="small_titles3"><h3>Review</h3></div>
+                                <div id="review_textarea">
+                                    <textarea placeholder="후기를 남겨주세요"></textarea>
+                                </div>
+                                <div>
+                                    <button>review 남기기</button>
+                                </div>
+
+                                <div id="small_titles4"><h3>Review 답변</h3></div>
+                                <div id="review_scroll">
+                                    <div id="review_answer">
+                                        <textarea>너무 깨끗해요</textarea>
+                                        <textarea>청결해요!</textarea>
+                                        <textarea>아메리카노 너무 맛있어요</textarea>
+                                        <textarea>아아</textarea>
+                                        <textarea>응애</textarea>
+                                        <textarea>편함</textarea>
+                                        <textarea>따뜻</textarea>
+                                        <textarea>맛있어용</textarea>
+                                        <textarea>별로,,,</textarea>
+                                        <textarea>내 맘의 별로...</textarea>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="QnA">
+                                <div id="small_titles3"><h3>QnA</h3></div>
+                                <div id="QnA_textarea">
+                                    <textarea placeholder="질문을 남겨주세요"></textarea>
+                                </div>
+                                <div>
+                                    <button>QnA 남기기</button>
+                                </div>
+
+                                
+                                <div id="small_titles4"><h3>QnA 답변</h3></div>
+                                <div id="QnA_scroll" >
+                                    <div id="QnA_answer">
+                                        <textarea>질문:</textarea>
+                                        <textarea>답변: </textarea>
+                                    </div>
+                                    <div id="QnA_answer">
+                                        <textarea>질문:</textarea>
+                                        <textarea>답변: </textarea>
+                                    </div>
+                                    <div id="QnA_answer">
+                                        <textarea>질문:</textarea>
+                                        <textarea>답변: </textarea>
+                                    </div>
+                                    <div id="QnA_answer">
+                                        <textarea>질문:</textarea>
+                                        <textarea>답변: </textarea>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                        
+
+
+
+                        
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </body>
+    </html>
