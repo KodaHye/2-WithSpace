@@ -60,10 +60,17 @@ class Booking(models.Model):
     def __str__(self):
         return self.booker_name
     
+    def hour(self):
+        h = self.booking_end.hour - self.booking_start.hour
+        return h
+    
     def time(self):
         h = self.booking_end.hour - self.booking_start.hour
         m = self.booking_end.minute - self.booking_start.minute
         return h*60 + m
+    
+    def payment(self):
+        return self.h * space_id.price 
     
 class Review(models.Model):
     # review_id
