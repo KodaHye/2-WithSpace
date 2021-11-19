@@ -27,6 +27,27 @@ a:visited {
   border-radius: 3px;
 }
 
+.main_input {
+  padding-left: 10px;
+  width: 325px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float:left
+}
+
+.main_button {
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float: right;
+}
+.search_div{
+    height: 40px;
+    width: 1000px;
+    border:1px solid #bbb7b7;
+}
 </style>
 
 <div class = "container">
@@ -43,8 +64,8 @@ a:visited {
        <br><br>
 
        <div class = "search_div">
-           <input type="text" name = "search_space" placeholder="장소를 검색해주세요. (장소, 조건)">
-           <button>검색</button>
+           <input class = "main_input" type="text" name = "search_space" placeholder="장소를 검색해주세요. (장소, 조건)">
+           <button class = "main_button">검색</button>
        </div>
        <br> <br>
        <div style="width: 1000px; padding-bottom: 10px;">
