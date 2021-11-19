@@ -67,6 +67,8 @@ def search_space(request):
 def search_result(request):
     return render(request, 'search_result.html')
 
+def search(request):
+    return render(request, 'search_space.html')
 
 # 공간 디테일 페이지 (공간 pk=id 값으로 페이지 렌더링)
 def space(request, id):

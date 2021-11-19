@@ -10,6 +10,7 @@ urlpatterns = [
    path('host_booking_list', views.host_booking_list, name='host_booking_list'),
    path('booking_list', views.booker_booking_list, name='booker_booking_list'),
    path('search_space', views.search_space, name='search_space'),
+   path('search', views.search, name='search'),
    
    # review
    path('create_review/<str:space_id>', views.create_review, name="create_review"),
