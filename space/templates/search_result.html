@@ -1,64 +1,103 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} 검색 결과 페이지 {% endblock %}
-{% block link %} {% static 'css/table.css' %}{% endblock %}
-
-<style>
-    .box{
-        border: 1px;
-        padding: 10px
-    }
-</style>
-
+{% block link %} {% static 'css/style.css' %}{% endblock %}
 {% block content %}
 
-<div class="container">
-    <div style="padding-bottom: 60px;">
+<style>
 
-    <h3> {{ keyword }}과 관련된 게시물 : {{space.count}} 개</h3>
+.image {
+  position:relative;
+}
 
+.image .text {
+  position:absolute;
+  top:200px;
+  left:430px;
+}
+a:visited {
+  color: black; text-decoration: none;
+}
 
-    <div class="content">
-      <div id="hashtag_posting">
-        {% if space %}
-        {% for s in space %}
-        <h2>{{s.space_name}} 
-            {% if s.space_type == "STUDY" %} 
-            ({{s.space_type}} ROOM) 
-            {% else %} 
-            ({{s.space_type}})
-            {% endif %} </h2>
-        <div style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
-            {% for tag in s.tags.all %}
-            <span class ="tag_style" style="color: #9CC2F3; border:1px solid; border-radius:20px "><b>#{{ tag.name }} </b></span> &nbsp;
-            {% endfor %} 
-            <br>
+.tag_style {
+  height: auto; 
+  border: 1px solid; 
+  display: inline-block;
+  border-color: #CAD9EC;
+  border-radius: 3px;
+}
+
+.main_input {
+  padding-left: 10px;
+  width: 325px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float:left
+}
+
+.main_button {
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float: right;
+}
+.search_div{
+    height: 40px;
+    width: 1000px;
+    border:1px solid #bbb7b7;
+}
+</style>
+
+<div class = "container">
+  <div>
 
     
-       {% if s.space_image %}
-        <img src="{{ s.space_image.url }}" width="300" alt="사진 로드 실패" />
-        {% endif %}
-        <div class="caption" >
-       <h3> <a href="{% url 'space' s.id %}"> 공간 {{s.space_name}} 바로가기 <br><br> </a> </h3>
-       {% endfor %}
-       {% else %}
-       <img id="photo"">
-       {% endif %}
-
-      </div>
-
-      <br>
-      <br>
-      <br>
-
+  </div>
+  <br><br>
+       <div class = "search_div">
+        <form method='post' action="{% url 'search_space' %}">
+          {% csrf_token %}
+          <input class = "main_input" type="text" name = "search_button" placeholder="장소를 검색해보세요. (장소, 조건)">
+          </form>
+        </div>
       
+          <h3> <b>{{ keyword }}</b> 관련된 게시물 : {{space.count}} 개</h3>
+  
 
-      <div class="image_box">
-        {% for post in post.all %}
-        <img id="image_box" src="{{ space.space_image.url }}">
-        {% endfor %}
+
+         <div class="row">
+          <!-- 새로 추가한 부분 여기서부터 -->
+            {% for s in space %}
+
+            <div class="col-sm-6 col-md-6" style ="width: 515px;">  
+              <div class="thumbnail" >
+                 {% if s.space_image %}
+                 <img src="{{ s.space_image.url }}" alt="사진 로드 실패" />
+                 {% endif %}
+                 <div class="caption" >
+                   <h3>{{ s.space_name }}</h3>
+                   <div style="margin-bottom: 3px; padding: 1px 2px 1px 2px;">
+                     {% for tag in s.tags.all %}
+                     <span class ="tag_style" style="color: #9CC2F3"><b>#{{ tag.name }} &nbsp; </b></span>
+                     {% endfor %} 
+                   </div>
+                   <div style="margin-bottom: 3px;"><span> <b>주소</b> {{s.address}}</span> </div>
+                   <div style="margin-bottom: 3px;"><b> 가격 </b> <span> {{s.price}}원 / 시간 </span></div>
+                   <a href="{% url 'space' s.id %}"><span class = "detail" style="color: #A9A9A9;">자세히 보기</span></a>
+                 </div>
+               </div>
+            </div>
+            
+            {% endfor %}
+
+
+         <!-- 여기까지 -->
+
+          
       </div>
-    </div>
-{% endblock %}
-
 </div>
+
+
+{% endblock %}
