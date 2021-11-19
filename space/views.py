@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-
+from django.db.models import Q
 
 """
 Main Page
@@ -33,7 +33,7 @@ def register(request):
         new_space.space_image = request.FILES.get('space_image')
         
         host_id = request.user.id
-        user = User.objects.get(id=host_id)
+        new_space.host_id = User.objects.get(id=host_id)
         new_space.save()
         
         tags = request.POST.get('tags', '').split(',')
@@ -48,7 +48,6 @@ def register(request):
 # 공간 검색 페이지
 def search_space(request):
     return render(request, 'search_space.html')
-
 
 # 공간 검색 결과 페이지 (검색 필터링 구현 후 리다이렉팅으로 변경)
 def search_result(request):
@@ -70,7 +69,6 @@ def space(request, id):
 def booker_booking(request, id):
     space_id = id
     space = get_object_or_404(Space, pk=space_id)
-    # return render(request, 'booking_page.html', {'space:':space, 'space_id':space_id})
     return render(request, 'booking_page.html', {'space': space})
 
 
@@ -144,8 +142,9 @@ def book(request, id):
         new_booking.booking_date = request.POST['booking_date']
         new_booking.booking_start = request.POST.get('booking_start')
         new_booking.booking_end = request.POST.get('booking_end')
-        # user_id = request.user.id
-        # user = User.objects.get(id=user_id)
+        
+        user_id = request.user.id
+        new_booking.user_id = User.objects.get(id=user_id)
         new_booking.save()
         return redirect('booker_booking_list')
     else:
