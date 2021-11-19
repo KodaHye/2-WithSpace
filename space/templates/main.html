@@ -33,7 +33,7 @@ a:visited {
   height: 100%;
   border: 0px;
   outline: none;
-  float:left;
+  float:left
 }
 
 .main_button {
@@ -67,12 +67,9 @@ a:visited {
        <div class = "search_div">
         <form method='post' action="{% url 'search_space' %}">
           {% csrf_token %}
-<<<<<<< HEAD
-          <input class = "main_input" type="text" name = "search_button" placeholder="공간을 검색해보세요. (장소, 조건)" >
-=======
           <input class = "main_input" type="text" name = "search_button" placeholder="공간을를 검색해보세요. (장소, 조건)">
+          <button id = "main_button">검색</button>
           </form>
->>>>>>> 152148fcf3fefe662e66bc8aa18bf17c8def5d3d
       
        </div>
        <br> <br>
