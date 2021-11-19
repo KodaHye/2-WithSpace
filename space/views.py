@@ -47,8 +47,22 @@ def register(request):
 
 # 공간 검색 페이지
 def search_space(request):
-    return render(request, 'search_space.html')
+    if request.method == 'POST':
+        keyword = request.POST.get('search_button') # keyword를 입력받음
+        
+        hashtag_q = Q(tags__icontains = keyword)
+        space_name_q = Q(space_name__icontains = keyword)
+        space_type_q = Q(space_type__icontains = keyword)
+        address_q = Q(address__icontains = keyword)
+        detail_q = Q(space_detail__icontains = keyword)
+        
+        space = Space.objects.filter(address_q | space_name_q | space_type_q | detail_q)
 
+        return render(request, 'search_result.html', {'space':space, 'keyword':keyword})
+    elif request.method == 'GET':
+        return redirect('/')
+
+    
 # 공간 검색 결과 페이지 (검색 필터링 구현 후 리다이렉팅으로 변경)
 def search_result(request):
     return render(request, 'search_result.html')

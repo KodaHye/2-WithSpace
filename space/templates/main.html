@@ -63,9 +63,13 @@ a:visited {
         </div>
        <br><br>
 
+
        <div class = "search_div">
-           <input class = "main_input" type="text" name = "search_space" placeholder="장소를 검색해주세요. (장소, 조건)">
-           <button class = "main_button">검색</button>
+        <form method='post' action="{% url 'search_space' %}">
+          {% csrf_token %}
+          <input class = "main_input" type="text" name = "search_button" placeholder="해시 태그를 검색해주세요. (장소, 조건)">
+          </form>
+      
        </div>
        <br> <br>
        <div style="width: 1000px; padding-bottom: 10px;">
