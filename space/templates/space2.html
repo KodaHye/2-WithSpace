@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <link rel="stylesheet" href="./css/main_header.css">
-        <link rel="stylesheet" href="./css/footer.css">
-        <!-- bootstrap, jquery 사용을 위한 코드 -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+{% extends 'base.html' %}
+{% load static %}
+{% include "django/forms/widgets/input.html" %}
+{% block title %} 공간에 대한 디테일 페이지 {% endblock %}
+{% block link %} {% static 'css/table.css' %}{% endblock %}
 
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
-        <meta charset="UTF-8">
+{% block content %}
+{{ form.media }}
 
             <style>
                 #section_box {
@@ -43,7 +32,7 @@
                     text-align: left;
                     height: 30px;
                     top: 40px;
-                    right: 475px;
+                    right: 200px;
                     font-size:20px;
                 }
                 #operator_and_liked {
@@ -103,7 +92,8 @@
                    clear:left;
                    position: relative;
                    top: 100px;
-                   width: 50px;
+                   width: 200px;
+                   text-align: left;
                 }
                 #small_titles3 {
                    clear:left;
@@ -221,13 +211,19 @@
                     
                 }
                 /* #QnA {
-
                 } */
                 #QnA_textarea {
                     float: left;
                     
                     /* resize: none; */
                 } 
+                #QnA_textarea input{
+                    border:0.5px solid grey;
+                    border-radius:10px;
+                    position: relative;
+                    top:70px;
+                    right: 400px;
+                }
 
                 /* QnA 입력창 자체에 적용됨 */
                 #QnA_textarea textarea {
@@ -243,7 +239,7 @@
                 #review button {
                     float: left; 
                     position: relative;
-                    top: 260px;
+                    top: 240px;
                     border-radius: 10px;
                     background: #CAD9EC;
                     width: 150px;
@@ -260,7 +256,7 @@
                 }
                 #review_answer {
                     border: 1px solid;
-                    border: none;
+                    border:none;
                     position: relative;
                     float: left;
                     text-align: left;
@@ -270,8 +266,15 @@
                     border-radius: 10px;
                     padding: 20px; 
                 }
+                #review_answer #review_content{
+                    border:1px solid;
+                    height: 100px;
+                    border-radius: 10px;
+                    position:relative;
+                    right: 17px;
+                }
                 #QnA_answer {
-                    border: 1px solid;
+                    border: none;
                     position: relative;
                     float: left;
                     text-align: left;
@@ -280,6 +283,20 @@
                     font-size: 15px;
                     border-radius: 10px;
                     padding: 20px;
+                    margin-bottom: 100px;
+                }
+                #QnA_answer button:not(#QnA button){
+                    position:relative;
+                    bottom: 250px;
+                    
+                
+                }
+                #answer_submit_button{
+                    position:relative;
+                    bottom: 230px;
+                }
+                #QnA_answer textarea{
+                    border: 1px solid;
                 }
                     
                     
@@ -307,10 +324,10 @@
                     float: left;
                     text-align: left;
                     width: 300px;
-                    height: 50px;
+                    height: 100px;
                     font-size: 15px;
                     border-radius: 10px;
-                    border: none;
+                    
                     padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
                     scrollbar-width: none; /* Firefox */
                 }  
@@ -348,6 +365,11 @@
                 #QnA_scroll::-webkit-scrollbar {
                     display: none; /* Chrome, Safari, Opera*/
                 }
+                #review_star_tag {
+                    position: relative;
+                    top: 50px;
+                    right: 100px;
+                }
             </style>
             
         </head>
@@ -356,54 +378,46 @@
             <div id="wrap">
                 <!--header태그는 문서나 특정 섹션(section)의 헤더(header)를 정의할 때 사용합니다.-->
                 <header>
-                    <div class="header1">
-                        <div class="header1_contents">
-                            <div id="h1_logo">
-                                <a href="">
-                                    withcloud
-                                </a>
-                            </div>
-
-                            <div id="h_button1"><a href="">공간검색</a></div>
-                            <span id="h_button2"><a href="">공간등록</a></span>
-                            
-                            <div class="h_col2_bf">
-                                <div id="login"><a href="">로그인</a></div>
-                                <div id="signup"><a href="">회원가입</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                    
 
                 <div id="section_box">
                     <div id="makecenter">
                         <!--등록한 공간 이름이 뜨게 해야함-->
-                        <div id="registered_space_name">한국기술교육대학교 카페 대즐</div>
+                        <div id="registered_space_name">{{space.space_name}}
+                            {% if space.space_type == "STUDY" %} (STUDY ROOM)
+                            {% else %} ({{space.space_type}})
+                            {% endif %}
+                        </div>
 
-                        <div id="tag1">#아아 맛집 #천안 #한기대</div>
+                        <div id="tag1">
+                            {% for tag in space.tags.all %}
+                            #{{ tag.name }}
+                            {% endfor %}
+                        </div>
 
                         <div id="operator_and_liked">
-                            <div id="operator_name">jw-cha</div>
+                            <div id="operator_name">{{space.host_id}}</div>
                             <div id="liked_num">
                                 <div id="liked">♡</div>
                                 <div id="num">100</div>
                             </div>
                         </div>
 
-                        <div id="space_img"><img src="img/dazzle.jpeg"></div>
+                        <div id="space_img">
+                            {% if space.space_image %}
+                            <img src="{{space.space_image.url}}" width="150">
+                            {% endif %}
+                        </div>
                         
                         
-                        <div class="small_titles0"><h3>짧은 소개</h3></div>
-                        <div id="short_intro">하잉dffsddsdfsdf</div>
+                        <div class="small_titles0"><h3>{{space.space_name}}   </h3></div>
+                        <div id="short_intro">{{space.space_brief_detail}}</div>
                         
 
                         <div style="position: relative; top:20px;">
                         <div style="float: left;">
-                            <div class="small_titles"><h3>공간 소개</h3></div>
-                            <div id="show_intro_space">안녕하세요 한국기술교육대학교 내에 있는 대즐이라는 카페입니다.
-                                리모델링도 해서 공간도 넓어지고 청결하고 공부도 하기 좋은 장소입니다.
-                                자주 놀러오세요. 제 기준에서는 특히 아메리카노가 정말 맛있는 것 
-                                같습니다. 헤헤헤헤헤헤 곡물라떼도 맛있습니다. 어서들 오세요 </div>
+                            <div class="small_titles"><h3>{{space.space_name}} 소개</h3></div>
+                            <div id="show_intro_space"> {{space.space_detail}} </div>
                         </div>
 
                         <div style="float: left; margin-right: 100px;">
@@ -413,44 +427,75 @@
 
                         <div id="price_box">
                             <div id="small_titles1"><h3>금액</h3></div>
-                            <div id="show_price">1,000,000원</div>
+                            <div id="show_price">{{space.price}} / 시간 (원)</div>
                         </div>
 
                         <div id="register_button">
-                            <button>예약하기</button>
+                            <a href="{% url 'book' space.id %}">
+                                <button>예약하기</button>
+                            </a>
                         </div>
                         
-                        <div id="small_titles2"><h3>위치</h3></div>
+                        <div id="small_titles2"><h3> {{ space.address }}</h3></div>
                         <div id="location">
-                            <div id="location1"></div>
-                            <div id="location2">주소</div>
+                            <div id="location1">
+                                <div id="map" style="width:500px"></div>
+                            </div>
+                            <div id="location2"> </div>
                         </div>
                         
                         <!-- 후기와 QnA -->
                         <div id="review_and_QnA">
                             <div id="review">
-                                <div id="small_titles3"><h3>Review</h3></div>
-                                <div id="review_textarea">
-                                    <textarea placeholder="후기를 남겨주세요"></textarea>
+                                <div id="small_titles3"><h3>Review 작성 </h3></div>
+                                
+                                    <div id="review_textarea">
+                                    {% if user.is_authenticated %}
+                                    <form action="{% url 'create_review' space.id %}" method="POST">
+                                        {% csrf_token %}
+                
+                                
+                                    <textarea name="review_content" cols="70" rows="10" placeholder="{{space.space_name}}의 시설은 어땠나요?"></textarea>
+                                    <div id="review_star_tag">
+                                        <label for="review_star"> 공간 별점:</label>
+                                        <select name="review_star">
+                                            <option value=1>⭐</option>
+                                            <option value=2>⭐⭐</option>
+                                            <option value=3>⭐⭐⭐</option>
+                                            <option value=4>⭐⭐⭐⭐</option>
+                                            <option value=5>⭐⭐⭐⭐⭐</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div>
-                                    <button>review 남기기</button>
+                                    <button type ="submit">Review 등록</button>
                                 </div>
-
-                                <div id="small_titles4"><h3>Review 답변</h3></div>
+                            </form>
+                            {% endif %}
+                                <div id="small_titles4"><h3>Review 보기</h3></div>
                                 <div id="review_scroll">
                                     <div id="review_answer">
-                                        <textarea>너무 깨끗해요</textarea>
-                                        <textarea>청결해요!</textarea>
-                                        <textarea>아메리카노 너무 맛있어요</textarea>
-                                        <textarea>아아</textarea>
-                                        <textarea>응애</textarea>
-                                        <textarea>편함</textarea>
-                                        <textarea>따뜻</textarea>
-                                        <textarea>맛있어용</textarea>
-                                        <textarea>별로,,,</textarea>
-                                        <textarea>내 맘의 별로...</textarea>
+                                        {% for review in space.review_set.all %}
+                                        <div id="review_content">
+                                            <div>
+                                                {{ review.user_id }}
 
+                                                {% if review.review_star == '1' %}
+                                                <span text-align="left">⭐</span>
+                                                {% elif review.review_star == '2' %}
+                                                <span>⭐⭐</span>
+                                                {% elif review.review_star == '3' %}
+                                                <span>⭐⭐⭐</span>
+                                                {% elif review.review_star == '4' %}
+                                                <span>⭐⭐⭐⭐</span>
+                                                {% elif review.review_star == '5' %}
+                                                <span>⭐⭐⭐⭐⭐</span>
+                                                {% endif %}
+
+                                            </div>
+                                            {{ review.review_content|linebreaksbr }}
+                                        </div>
+                                        {% endfor %}
 
                                     </div>
                                 </div>
@@ -458,32 +503,49 @@
 
                             <div id="QnA">
                                 <div id="small_titles3"><h3>QnA</h3></div>
-                                <div id="QnA_textarea">
-                                    <textarea placeholder="질문을 남겨주세요"></textarea>
-                                </div>
+                                <form action="{% url 'create_question' space.id %}" method="POST">
+                                    {% csrf_token %}
+                                   
+                                    <div id="QnA_textarea">
+                                        
+                                    <textarea name="question_content" placeholder="질문을 남겨주세요"></textarea>
+                                    <input type="text" name="writer" placeholder="작성자 이름"> <br>
+                                    </div>
                                 <div>
                                     <button>QnA 남기기</button>
+                                </form>
                                 </div>
 
                                 
                                 <div id="small_titles4"><h3>QnA 답변</h3></div>
                                 <div id="QnA_scroll" >
-                                    <div id="QnA_answer">
-                                        <textarea>질문:</textarea>
-                                        <textarea>답변: </textarea>
+                                    
+                                        {% for question in space.question_set.all %}
+                                        {% if question.question_content %}
+                                        <div id="QnA_answer">
+
+                                        <b>{{ question.writer|linebreaksbr }} </b>님의 질문 : {{ question.question_content|linebreaksbr }} <br>
+                                        
+                                        {% endif %}
+
+                                        {% if request.user == space.host_id %}
+                                           
+                                            <form action="{% url 'create_answer' space.id question.id %}" method="POST">
+                                                {% csrf_token %}
+                                                
+                                                <textarea name="answer_content" cols="30" rows="5"
+                                                    placeholder="{{question.writer}}님의 질문에 대한 답을 달아주세요."></textarea>
+                                                <div id=answer_submit_button>
+                                                <button type="submit"> 답변 등록 </button>
+                                                </div>
+                                            </form>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                    
+        
                                     </div>
-                                    <div id="QnA_answer">
-                                        <textarea>질문:</textarea>
-                                        <textarea>답변: </textarea>
-                                    </div>
-                                    <div id="QnA_answer">
-                                        <textarea>질문:</textarea>
-                                        <textarea>답변: </textarea>
-                                    </div>
-                                    <div id="QnA_answer">
-                                        <textarea>질문:</textarea>
-                                        <textarea>답변: </textarea>
-                                    </div>
+             
                                 </div>
 
                                 
@@ -502,5 +564,49 @@
 
 
             </div>
-        </body>
-    </html>
+            <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44d76a02e55a2fd2a6e30e327947cfe2&libraries=services"></script>
+        <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };
+        
+            // 지도를 생성합니다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+        
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+            var address = "{{space.address}}";
+            var mark = "{{space.space_name}}";
+        
+            window.addEventListener('load', e => {
+                geocoder.addressSearch(address, function (result, status) {
+        
+                    // 정상적으로 검색이 완료됐으면 
+                    if (status === kakao.maps.services.Status.OK) {
+        
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        
+                        // 결과값으로 받은 위치를 마커로 표시합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: coords
+                        });
+        
+                        // 인포윈도우로 장소에 대한 설명을 표시합니다
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + mark + '</div>'
+                        });
+                        infowindow.open(map, marker);
+        
+                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                        map.setCenter(coords);
+                    }
+                });
+        
+            })
+        </script>
+    
+{% endblock %}
