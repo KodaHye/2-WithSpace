@@ -1,0 +1,329 @@
+#section_box {
+    width: 1400px;
+    height: 3000px;
+    margin: 0 auto;
+}
+#makecenter {
+    padding-top: 200px;
+    padding-bottom: 20px;
+    text-align: center;
+    float: left;
+}
+#registered_space_name{
+    position: relative;
+    float: left;
+    font-size: 35px;
+    bottom: 70px;
+    margin: 0px 0px 30px 0px;
+    
+}
+#tag1{
+    position: relative;
+    text-align: left;
+    height: 30px;
+    top: 40px;
+    right: 475px;
+    font-size:20px;
+}
+#operator_and_liked {
+    position: relative;
+    float: right;
+    right: 125px;
+    bottom: 20px;
+    font-size: 20px;
+    width: 100px;
+
+    
+}
+#operator_name {
+    font-family: 휴면명조;
+    margin: 0px 0px 5px 0px;
+}
+#liked_num {
+    position: relative;
+    display:flex;
+    left: 17px;
+    font-family: 휴면명조;
+}
+#liked_num #liked {margin: 0px 10px 0px 0px;}
+#liked_num #num {}
+#space_img img{
+    float: left;
+    height: 600px;
+    width: 1000px;
+    margin: 10px 0px 60px 0px;
+    
+}
+
+/* 제목들 */
+.small_titles0 {
+    position:relative;
+    top: 25px;
+    font-size: 30px;
+    margin: 20px 0px 20px 0px;
+    width: 150px;
+    text-align: left;
+    clear:left;
+}
+.small_titles {
+    position:relative;
+    font-size: 30px;
+    margin: 20px 0px 20px 0px;
+    float: left;
+
+}
+#small_titles1 {
+    float: left;
+    position:relative;
+    font-size: 30px;
+    margin: 20px 0px 20px 0px;
+}
+#small_titles2 {
+   clear:left;
+   position: relative;
+   top: 100px;
+   width: 50px;
+}
+#small_titles3 {
+   clear:left;
+   position: relative;
+   top: 200px;
+   width: 470px;
+   text-align: left;
+}
+#small_titles4 {
+   clear:left;
+   position: relative;
+   top: 350px;
+   width: 470px;
+   text-align: left;
+}
+
+/* 소개 */
+#short_intro {
+    position: relative;
+    bottom: 21px; 
+    left: 130px;
+    font-family: 휴면명조;
+    font-size: 20px;
+    width: 700px;
+    text-align: left;
+    
+}
+#show_intro_space {
+    clear: left;
+    text-align: left;
+    font-size: 20px;
+    height: 200px;
+    width: 550px;
+    font-family: 휴면명조;
+    margin: 30px 150px 0px 0px;
+}
+#show_maximum_people{
+    clear:left;
+    text-align: left;
+    font-size: 20px;
+    font-family: 휴면명조;
+    margin: 30px 0px 30px 0px;
+}
+#price_box {
+    float: left;
+    position: relative;
+    width: 200px;
+    top: 150px;
+    right: 240px;
+    
+}
+#show_price{
+    clear: left;
+    text-align: left;
+    font-size: 20px;
+    width: 500px;
+    font-family: 휴면명조;
+    margin: 30px 0px 0px 0px;
+}
+#register_button button{
+    border-radius: 10px;
+    background: #CAD9EC;
+    float: left;
+    width:150px;
+    height: 50px;
+    position: relative;
+    top: 210px;
+    right: 240px; 
+    
+}
+#location {
+    position: relative;
+    clear: left;
+    display: flex;
+    top: 130px;
+    margin: 0px 0px 20px 0px;
+}
+#location1 {
+    border: 1px solid; 
+    margin: 0px 30px 0px 0px;
+    width: 45%;
+    height: 200px;
+}
+#location2 { 
+    border: 1px solid; 
+    width: 30%;
+    padding: 25px;
+    font-size: 20px;
+    text-align: left;
+}
+
+#review_and_QnA {
+    display: flex;
+}
+#review {
+    position: relative;
+    
+}
+#review_textarea{
+    float: left;
+    
+    /* resize: none; */
+}
+
+/* review 입력창 자체에 적용됨 */
+#review_textarea textarea{
+    position: relative;
+    height: 150px;
+    top: 230px;
+    width: 400px;
+    resize: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    
+}
+/* #QnA {
+
+} */
+#QnA_textarea {
+    float: left;
+    
+    /* resize: none; */
+} 
+
+/* QnA 입력창 자체에 적용됨 */
+#QnA_textarea textarea {
+    position: relative;
+    height: 150px;
+    width: 400px;
+    top: 230px;
+    resize: none;
+    border-radius: 10px;
+    padding: 20px;  
+    font-size: 20px;
+}   
+#review button {
+    float: left; 
+    position: relative;
+    top: 260px;
+    border-radius: 10px;
+    background: #CAD9EC;
+    width: 150px;
+    height: 40px;
+}
+#QnA button {
+    float: left;
+    position: relative;
+    top: 260px;
+    border-radius: 10px;
+    background: #CAD9EC;
+    width: 150px;
+    height: 40px;
+}
+#review_answer {
+    border: 1px solid;
+    border: none;
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 400px;
+    height: 500px;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 20px; 
+}
+#QnA_answer {
+    border: 1px solid;
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 400px;
+    height: 150px;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 20px;
+}
+    
+    
+
+#review_answer textarea {
+    overflow: scroll; 
+    overflow-x: hidden;
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 300px;
+    height: 70px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}  
+#review_answer textarea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#QnA_answer textarea {
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 20px;  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}  
+#QnA_answer textarea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+#review_scroll{
+    overflow: scroll; 
+    overflow-x: hidden;
+    width: 440px;
+    height: 500px;
+    float: left;
+    position:relative;
+    top: 385px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}  
+#review_scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#QnA_scroll {
+    overflow: scroll; 
+    overflow-x: hidden;
+    width: 440px;
+    height: 500px;
+    float: left;
+    position:relative;
+    top: 385px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}  
+#QnA_scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}

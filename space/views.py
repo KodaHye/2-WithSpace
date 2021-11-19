@@ -87,7 +87,7 @@ def space(request, id):
     else:
         space = get_object_or_404(Space, pk=id)
         space_id = id
-        return render(request, 'space.html', {'space':space, 'space_id':space_id})
+        return render(request, 'space2.html', {'space':space, 'space_id':space_id})
 
 
 # 예약자의 공간 예약 페이지
