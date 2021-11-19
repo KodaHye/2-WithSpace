@@ -1,0 +1,106 @@
+#section_box {
+    width: 1500px;
+    height: 1600px;
+    margin: 0 auto;
+}
+#makecenter {
+    padding-top: 200px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+#register_space {
+    position: relative;
+    text-align: left;
+    bottom: 100px;
+    left: 50px;
+    font-size: 40px;
+}
+#space_name {
+    position: relative;
+    text-align: left;
+    left: 55px;
+    font-size: 30px;
+}
+#space_name_input {
+    position: relative;
+    right: 450px;
+    top: 15px;
+    height: 60px;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+    
+}
+#upload_name {
+    position: relative;
+    font-size: 30px;
+    left: 100px;
+    bottom: 100px;
+}
+
+.upload_button {
+    display: flex;
+    justify-content: center;
+}
+label {
+    cursor: pointer;
+    font-size: 3em;
+    position: relative;
+    left: 100px;
+    
+}
+
+/* 못생긴 기존 input 숨기기 */
+#chooseFile {
+    visibility: hidden;
+}
+
+#move_input1 {
+    position: relative;
+    bottom: 70px;
+}
+#move_input2 {
+    position: relative;
+    bottom: 103px;
+    left: 600px;
+}
+#intro_space textarea{
+    position: relative;
+    right: 215px;
+    top: 20px;
+    padding: 10px 10px 10px 10px;
+    resize: none;
+    font-size:30px;
+}
+#url_input input{
+    position: relative;
+    right: 325px;
+    top: 15px;
+    height: 60px;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+}
+
+#tel_name {
+    position: relative;
+    text-align: left;
+    left: 70px;
+    font-size: 30px;
+}
+#tel_input {
+    position: relative;
+    right: 505px;
+    top: 15px;
+    height: 60px;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+}
+#submit_btn button{
+    position: relative;
+    border-radius: 10px;
+    font-size: 30px;
+    height: 70px;
+    left: 190px;
+    top: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
+}

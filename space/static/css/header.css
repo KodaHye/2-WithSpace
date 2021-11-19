@@ -1,0 +1,28 @@
+.h_col2_bf {
+    position: relative;
+    bottom: 0px;    
+    left: 870px;
+    color: #fff;
+    font-size: larger;
+}
+.h_col2_bf a{
+    color: #fff;
+    font-size: larger;
+    text-decoration-line: none;
+}
+.h_col2_bf a:hover{
+    
+    color:#fff; 
+}
+.h_col2_bf button {
+    bottom: 15px;  
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+#name {
+    position: relative;
+    left: 265px;
+    bottom: 50px;
+    font-family: HY견고딕;
+}
