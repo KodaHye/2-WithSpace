@@ -56,7 +56,7 @@ a:visited {
          <div class="row">
           <!-- 새로 추가한 부분 여기서부터 -->
             {% for space in spaces %}
-            
+
             <div class="col-sm-6 col-md-6" style ="width: 515px;">  
               <div class="thumbnail" >
                  {% if space.space_image %}
@@ -68,13 +68,14 @@ a:visited {
                      {% for tag in space.tags.all %}
                      <span class ="tag_style" style="color: #9CC2F3"><b>#{{ tag.name }} &nbsp; </b></span>
                      {% endfor %} 
-                   </div><br>
+                   </div>
                    <div style="margin-bottom: 3px;"><span> <b>주소</b> {{space.address}}</span> </div>
                    <div style="margin-bottom: 3px;"><b> 가격 </b> <span> {{space.price}}원 / 시간 </span></div>
                    <a href="{% url 'space' space.id %}"><span class = "detail" style="color: #A9A9A9;">자세히 보기</span></a>
                  </div>
                </div>
             </div>
+            
             {% endfor %}
 
 

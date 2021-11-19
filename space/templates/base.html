@@ -31,6 +31,10 @@
         <header>
             <div class="header1">
                 <div class="header1_contents">
+
+                    <div id="h1_logo" style="margin-right: 10px;">
+                        <img src="{% static 'images/WithSpaceLogo.jpg' %}" alt="이미지 로드 안됨", width="100px">
+                    </div>
                     <div id="h1_logo">
                         <a href="{% url 'main' %}">
                             withSpace
@@ -75,7 +79,7 @@
 
     {% endblock %}
 
-    <footer class="footer">
+    <footer class="footer" style="margin-top: 50px">
         <div class="margin">
             <span style="color: #ffffff;">순천향대학교 & 한국기술교욱대학교 연합해커톤</span><br>
             <span style="color: #ffffff;">이예빈, 배연주, 차주원, 고다혜</span><br>
