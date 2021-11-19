@@ -68,6 +68,7 @@ a:visited {
         <form method='post' action="{% url 'search_space' %}">
           {% csrf_token %}
           <input class = "main_input" type="text" name = "search_button" placeholder="공간을를 검색해보세요. (장소, 조건)">
+          <button id = "main_button">검색</button>
           </form>
       
        </div>
